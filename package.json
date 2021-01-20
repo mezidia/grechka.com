@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/mezidia/grechka.com/issues"
   },
-  "homepage": "https://github.com/mezidia/grechka.com#readme"
+  "homepage": "https://github.com/mezidia/grechka.com#readme",
+  "dependencies": {
+    "sqlite3": "^5.0.1"
+  }
 }
