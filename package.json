@@ -1,0 +1,26 @@
+{
+  "name": "grechka.com",
+  "version": "1.0.0",
+  "description": "Website on NodeJs, where you can look for the cheapest price of products",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mezidia/grechka.com.git"
+  },
+  "keywords": [
+    "nodejs",
+    "js",
+    "sqlite",
+    "server"
+  ],
+  "author": "mezidia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mezidia/grechka.com/issues"
+  },
+  "homepage": "https://github.com/mezidia/grechka.com#readme"
+}
