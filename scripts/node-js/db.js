@@ -3,7 +3,7 @@
 const sqlite3 = require('sqlite3').verbose();
 
 // open database in memory
-let db = new sqlite3.Database('products.db', (err) => {
+let db = new sqlite3.Database('products.db', sqlite3.OPEN_READWRITE, (err) => {
   if (err) {
     return console.error(err.message);
   }
