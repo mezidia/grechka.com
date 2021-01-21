@@ -81,4 +81,4 @@ class DB{
   };
 };
 
-export default DB;
+module.exports = { DB };
