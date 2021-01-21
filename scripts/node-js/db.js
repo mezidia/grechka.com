@@ -3,9 +3,8 @@
 const sqlite3 = require('sqlite3').verbose();
 
 class DB{
+  // Open database in memory
   constructor (path) {
-    // Open database in memory
-    // Create db field
     this.db = new sqlite3.Database(path, sqlite3.OPEN_READWRITE, (err) => {
       if (err) {
         return console.error(err.message);
@@ -28,6 +27,7 @@ class DB{
 
   // Get all rows from table
   // Vars: sql - str, parameters - array
+  // Example: `SELECT DISTINCT Name FROM playlists ORDER BY Name`;
   getAll (sql, parameters) {
     this.db.all(sql, parameters, (err, rows) => {
       if (err) {
@@ -39,6 +39,7 @@ class DB{
 
   // Get first row only
   // Vars: sql - str, parameters - array
+  // Example: `SELECT PlaylistId id, Name name FROM playlists WHERE PlaylistId  = ?`;
   getFirst (sql, parameters) {
     this.db.get(sql, parameters, (err, row) => {
       if (err) {
@@ -47,6 +48,18 @@ class DB{
       return row;
     });
   };
+
+  // Insert data to table
+  // Vars: sql - str, parameters - array
+  // Example: 'INSERT INTO table VALUES ' + data;
+  insert (sql, parameters) {
+    this.db.run(sql, parameters, function(err) {
+      if (err) {
+        return console.error(err.message);
+      }
+      console.log(`Rows inserted ${this.changes}`);
+    });
+  }
 }
 
 export default DB;
