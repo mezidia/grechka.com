@@ -30,6 +30,7 @@ input {
   align-items: center;
   justify-content: center;
   min-width: 700px;
+  background-color: bisque;
 }
 
 #menu-wraper li {
@@ -97,7 +98,8 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  min-width: 200px;
+  cursor: pointer;
 }
 
 #searchbar {
@@ -108,6 +110,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 350px;
   
 }
 
@@ -116,21 +119,9 @@ input {
   grid-column-end: 1;
   grid-row-start: 2;
   grid-row-end: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-width: 300px;
-  
-}
-
-#brandFilter {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 4;
-  grid-row-end: 7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 20px 0px 0px 10px;
+  background-color: cadetblue;
 }
 
 #productsPlaceholder {
@@ -235,10 +226,6 @@ input {
   margin: 5px 0px 0px 0px;
 }
 
-.product-price {
-
-}
-
 .productsPlaceholder-wraper {
   display: flex;
   align-items: flex-start;
@@ -258,10 +245,8 @@ input {
 
 .searchfield {
   display:flex;
-  position:realtive;
-  margin:5em auto;
+  align-self: center;
   flex-direction:row;
-  width:70%;
 }
 
 .searchfield>input[type=text],
@@ -366,58 +351,174 @@ input {
   }
 }
 
+#filters-wraper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+  flex-direction: column;
+}
 
-#brandFilter-wrapper>input{ display: none; }
+#filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: cyan;
+}
 
-label{
+.filter-cell {
   display: inline-block;
-  margin: 3px;
-  padding: 5px;
-  text-transform: uppercase; 
-  border: 1px solid #bbb;
-  border-radius: 5px;
-  box-shadow: 0 1px 0 #bbb;
+  justify-content: center;
+  align-items: center;
+	margin-right: 10px;
 }
 
-input:not(:checked) + label{
-  background: none;
-  box-shadow: none;
-  margin: 5px 3p 1px;
+.filter-cell-btn input[type=radio] {
+  display: none;
+  animation: uncheckboxAnimation .1s linear;
 }
 
-.green{ background-color: green;}
-.yellow{background-color: yellow;}
-.red{  background-color: red;}
-.violet{background-color: violet;}
-.blue{background-color: blue;}
-
-.tag{
-  display: inline-block; 
-  padding: 3px 5px;
-}
-
-
-
-input#green:not(:checked) ~ .container .item.green,
-input#yellow:not(:checked) ~ .container .item.yellow,
-input#red:not(:checked) ~ .container .item.red,
-input#violet:not(:checked) ~ .container .item.violet,
-input#blue:not(:checked) ~ .container .item.blue{
+.filter-cell-btn input[type=checkbox] {
   display: none;
 }
 
-.item{
-  display: block;
-  margin: 10px 0;
-  padding: 5px;
-  border: 1px solid gray;
-  background: none;
+.filter-cell-btn {
+  display: flex;
+  flex-direction: row;
 }
 
-label:after{
-  content: attr(for) " label";
+.filter-cell-btn label {
+	display: block;
+  cursor: pointer;
+  margin: 20px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgb(176, 255, 176);
+  user-select: none;
+  background-color: rgb(176, 255, 176);
+  box-shadow:
+  1px 1px 0 rgb(0, 255, 34),
+  2px 2px 0 rgb(0, 255, 34),
+  3px 3px 0 rgb(0, 255, 34),
+  4px 4px 0 rgb(0, 255, 34)
+ ;
+}
+ 
+/* Checked */
+.filter-cell-btn input[type=radio]:checked + label {
+  background: green;
+  box-shadow:
+  1px 1px 0 rgb(0, 255, 34),
+  2px 2px 0 rgb(0, 255, 34),
+  3px 3px 0 rgb(0, 255, 34),
+  4px 4px 0 rgb(0, 255, 34)
+ ;
+  animation: animateSearchbar .1s linear;
+
+}
+ 
+.filter-cell-btn input[type=checkbox]:checked + label {
+  background:green;
+  box-shadow:
+  1px 1px 0 rgb(0, 255, 34),
+  2px 2px 0 rgb(0, 255, 34),
+  3px 3px 0 rgb(0, 255, 34),
+  4px 4px 0 rgb(0, 255, 34)
+ ;
+  animation: checkboxAnimation .1s linear;
+
+}
+
+.filter-cell-btn input[type=radio]:not(:checked) + label {
+  background: red;
+  box-shadow:
+  1px 1px 0 orangered,
+  2px 2px 0 orangered,
+  3px 3px 0 orangered,
+  4px 4px 0 orangered
+ ;
+  animation: uncheckboxAnimation .1s linear;
+
+}
+ 
+.filter-cell-btn input[type=checkbox]:not(:checked) + label {
+  background:red;
+  box-shadow:
+  1px 1px 0 orangered,
+  2px 2px 0 orangered,
+  3px 3px 0 orangered,
+  4px 4px 0 orangered
+ ;
+  animation: uncheckboxAnimation .1s linear;
+
+}
+
+.label-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+ 
+/* Disabled */
+.filter-cell-btn input[type=radio]:disabled + label {
+	background: #efefef;
+	color: #666;
+}
+
+.filter-cell-text {
+  display: inline-block;
+}
+
+.filter-cell-btn input[type=checkbox]:disabled + label {
+	background: #666;
+  box-shadow:
+  1px 1px 0 wheat,
+  2px 2px 0 wheat,
+  3px 3px 0 wheat,
+  4px 4px 0 wheat
+ ;
+}
+
+@keyframes checkboxAnimation {
+  0% {
+    transform: translateY(1px) translateX(1px);
+    box-shadow:
+    1px 1px 0 rgb(22, 160, 133),
+    2px 2px 0 rgb(22, 160, 133),
+    3px 3px 0 rgb(22, 160, 133),
+    4px 4px 0 rgb(22, 160, 133),
+
+   ;
+  }
+  100% {
+    transform: translateY(7px) translateX(7px);
+    box-shadow: none
+   ;
+   background-color: green;
+  }
+}
+
+@keyframes uncheckboxAnimation {
+  0% {
+    transform: translateY(1px) translateX(1px);
+    box-shadow:
+    1px 1px 0 rgb(22, 160, 133),
+    2px 2px 0 rgb(22, 160, 133),
+    3px 3px 0 rgb(22, 160, 133),
+    4px 4px 0 rgb(22, 160, 133),
+
+   ;
+  }
+  100% {
+    transform: translateY(7px) translateX(7px);
+    box-shadow: none
+   ;
+   background-color: red;
+  }
 }
 
 
-
-
+.filter-cell-header {
+  
+}
