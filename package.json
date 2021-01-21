@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/mezidia/grechka.com#readme",
   "dependencies": {
-    "sqlite3": "^5.0.1"
+    "mongoose": "^5.11.13"
   }
 }
