@@ -29,16 +29,98 @@
       </div>
       <div id="searchbar">
         <div id="searchbar-wraper">
-          <div class="field" id="searchform">
-            <input type="text" id="searchterm" placeholder="what are you searching for?" />
+          <div class="searchfield" id="searchform">
+            <input type="text" id="searchterm" placeholder="hungry?&#128527;" />
             <button type="button" id="search">Find!</button>
           </div>
         </div>
       </div>
+      <div id="brandFilter">
+        <div id="brandFilter-wrapper">
+          <h1>brand AND filter</h1>
+          <input type="checkbox" checked name="green" id="green">
+          <label for="green" class="green"></label>
+          <input type="checkbox" checked name="yellow" id="yellow">
+          <label for="yellow" class="yellow"></label>
+          <input type="checkbox" checked name="red" id="red">
+          <label for="red" class="red"></label>
+        <input type="checkbox" checked name="violet" id="violet">
+          <label for="violet" class="violet"></label>
+          <input type="checkbox" checked name="blue" id="blue">
+          <label for="blue" class="blue"></label>
+          <div class="container">
+            <div class="yellow item">
+              Yellow sateen 
+            <span class="yellow tag">Yellow</span>
+            </div>
+            
+            <div class="violet yellow item">
+              Simple cotton cloth
+              <span class="violet tag">Violet</span>
+              <span class="yellow tag">Yellow</span>
+            </div>
+            
+            <div class="red item">
+               Red corduroy cloth
+              <span class="red tag">Red</span>
+            </div>
+            
+            <div class="violet item">
+              Violet velour knit 
+              <span class="violet tag">Violet</span>
+            </div>
+            
+            <div class="red blue yellow item">
+               Woollen cloth
+              <span class="blue tag">Blue</span>
+              <span class="yellow tag">Yellow</span>
+              <span class="red tag">Red</span>
+            </div>
+        
+            <div class="green yellow item">
+              Natural linen cloth
+              <span class="green tag">Green</span>
+            </div>
+            
+            <div class="red green violet item">
+              Brushed cotton cloth
+              <span class="red tag">Red</span>
+              <span class="green tag">Green</span>
+              <span class="violet tag">Violet</span>
+            </div>
+            
+            <div class="red blue green yellow item">
+               Low-grade woollen cloth
+              <span class="green tag">Green</span>
+              <span class="yellow tag">Yellow</span>
+              <span class="red tag">Red</span>
+              <span class="blue tag">Blue</span>
+            </div>
+        
+           <div class="blue yellow item">
+               Stretchy cotton cloth
+              <span class="blue tag">Blue</span>
+              <span class="yellow tag">Yellow</span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
       <div id="productsPlaceholder">
-        <ul id="productsPlaceholder-wraper">
-          <a class="productsPlaceholder-cell" href="#">productsPlaceholder</a>
-        </ul>
+        <div id="productsPlaceholder-wraper">
+          <div class="productsholder-cell">
+            <img class="product-img" 
+            src="https://3op1xd1bmnmj3sxtuj4a6m1q-wpengine.netdna-ssl.com/ryogoku/wp-content/uploads/sites/9/2020/03/test-img.jpg"
+            alt="product-img"
+            >
+            <div class="productCell-grid">
+              <div class="product-name">product-name</div> 
+              <div class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel eros vehicula, vulputate dolor vitae, mattis erat. Quisque id risus bibendum, accumsan dolor et, porta mauris. Sed eu tellus lectus. Sed molestie nisl in dolor pretium pretium. Quisque massa urna, pharetra a accumsan tincidunt, pulvinar eu nulla. Quisque laoreet cursus eros, ut dignissim libero luctus vel. Donec id aliquet libero, ut venenatis purus. Nunc condimentum gravida justo sit amet scelerisque.</div>
+              <a class="buy-btn" target="_blank" href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/Input/button">666.00grn</a>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
     <div id="footer">

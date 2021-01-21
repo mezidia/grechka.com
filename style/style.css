@@ -29,6 +29,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 700px;
 }
 
 #menu-wraper li {
@@ -118,7 +119,18 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 300px;
   
+}
+
+#brandFilter {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #productsPlaceholder {
@@ -126,10 +138,112 @@ input {
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 10;
+}
+
+.productsholder-cell {
+  margin: 5px;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  background-color: aquamarine;
+  padding: 5px;
+  height: 125px;
+  min-width: 800px;
+  box-shadow:
+  1px 1px 0 rgb(22, 160, 133),
+  2px 2px 0 rgb(22, 160, 133)
+ ;
+}
+
+.product-img {
+  width: 125px;
+  height: 125px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.productCell-grid {
+  margin-left: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 25px);
+}
+
+.product-name {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  display: flex;
+  justify-content: start;
+  font-size: 25px;
+}
+
+.buy-btn {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  margin: 15px 35px 10px 50px;
+  display: flex;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: white;
+  background-color: orangered;
+  display: flex;
   justify-content: center;
-  
+  align-items: center;
+  font-size: 25px;
+  box-shadow:
+  1px 1px 0 rgb(22, 160, 133),
+  2px 2px 0 rgb(22, 160, 133),
+  3px 3px 0 rgb(22, 160, 133),
+  4px 4px 0 rgb(22, 160, 133),
+  5px 5px 0 rgb(22, 160, 133),
+  6px 6px 0 rgb(22, 160, 133),
+  7px 7px 0 rgb(22, 160, 133)
+ ;
+}
+
+.buy-btn:hover {
+  background-color:rgb(22, 160, 133); /* Градиент */
+  color: red;
+  box-shadow:
+  1px 1px 0 rgb(87, 247, 215),
+  2px 2px 0 rgb(22, 160, 133),
+  3px 3px 0 rgb(22, 160, 133),
+  4px 4px 0 rgb(22, 160, 133),
+  5px 5px 0 rgb(22, 160, 133),
+  6px 6px 0 rgb(22, 160, 133),
+  7px 7px 0 rgb(22, 160, 133)
+ ;
+}
+
+.buy-btn:active {
+  animation: animateSearchbar .3s linear;
+}
+
+.product-description {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 6;
+  height: 90px;
+  display: -webkit-box;
+	-webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-indent: 1em;
+  margin: 5px 0px 0px 0px;
+}
+
+.product-price {
+
+}
+
+.productsPlaceholder-wraper {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: stretch;
 }
 
 #footer {
@@ -142,7 +256,7 @@ input {
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
 
-.field {
+.searchfield {
   display:flex;
   position:realtive;
   margin:5em auto;
@@ -150,8 +264,8 @@ input {
   width:70%;
 }
 
-.field>input[type=text],
-.field>button {
+.searchfield>input[type=text],
+.searchfield>button {
   display:block;
   font:1.2em 'Montserrat Alternates';
   box-shadow:
@@ -165,7 +279,7 @@ input {
  ;
 }
 
-.field>input[type=text] {
+.searchfield>input[type=text] {
   flex:1;
   padding:0.6em;
   border:0.2em solid rgb(26, 188, 156);
@@ -180,22 +294,21 @@ input {
  ;
 }
 
-.field>button {
+.searchfield>button {
   padding:0.6em 0.8em;
   background-color:rgb(26, 188, 156);
   color:white;
   border:none;
+  outline: none;
 }
 
-.field>button:active {
-  animation: animateSearchbar .5s;
-  box-shadow: none;
+.searchfield>button:active {
+  animation: animateSearchbar .3s linear;
 }
 
 @keyframes animateSearchbar {
   0% {
-    transform: translateY(1px);
-    transform: translateX(1px);
+    transform: translateY(1px) translateX(1px);
     box-shadow:
     1px 1px 0 rgb(22, 160, 133),
     2px 2px 0 rgb(22, 160, 133),
@@ -203,86 +316,108 @@ input {
     4px 4px 0 rgb(22, 160, 133),
     5px 5px 0 rgb(22, 160, 133),
     6px 6px 0 rgb(22, 160, 133),
-    7px 7px 0 rgb(22, 160, 133)
    ;
   }
   15% {
-    transform: translateY(2px);
-    transform: translateX(2px);
+    transform: translateY(2px) translateX(2px);
     box-shadow:
     1px 1px 0 rgb(22, 160, 133),
     2px 2px 0 rgb(22, 160, 133),
     3px 3px 0 rgb(22, 160, 133),
     4px 4px 0 rgb(22, 160, 133),
     5px 5px 0 rgb(22, 160, 133),
-    6px 6px 0 rgb(22, 160, 133),
-    7px 7px 0 rgb(22, 160, 133)
    ;
   }
   25% {
-    transform: translateY(3px);
-    transform: translateX(3px);
+    transform: translateY(3px) translateX(3px);
     box-shadow:
     1px 1px 0 rgb(22, 160, 133),
     2px 2px 0 rgb(22, 160, 133),
     3px 3px 0 rgb(22, 160, 133),
     4px 4px 0 rgb(22, 160, 133),
-    5px 5px 0 rgb(22, 160, 133),
-    6px 6px 0 rgb(22, 160, 133),
-    7px 7px 0 rgb(22, 160, 133)
    ;
   }
   35% {
-    transform: translateY(4px);
-    transform: translateX(4px);
+    transform: translateY(4px) translateX(4px);
     box-shadow:
     1px 1px 0 rgb(22, 160, 133),
     2px 2px 0 rgb(22, 160, 133),
     3px 3px 0 rgb(22, 160, 133),
-    4px 4px 0 rgb(22, 160, 133),
-    5px 5px 0 rgb(22, 160, 133),
-    6px 6px 0 rgb(22, 160, 133),
-    7px 7px 0 rgb(22, 160, 133)
    ;
   }
   50% {
-    transform: translateY(5px);
-    transform: translateX(5px);
+    transform: translateY(5px) translateX(5px);
     box-shadow:
     1px 1px 0 rgb(22, 160, 133),
     2px 2px 0 rgb(22, 160, 133),
-    3px 3px 0 rgb(22, 160, 133),
-    4px 4px 0 rgb(22, 160, 133),
-    5px 5px 0 rgb(22, 160, 133),
-    6px 6px 0 rgb(22, 160, 133),
-    7px 7px 0 rgb(22, 160, 133)
+
    ;
   }
   75% {
-    transform: translateY(6px);
-    transform: translateX(6px);
+    transform: translateY(6px) translateX(6px);
     box-shadow:
     1px 1px 0 rgb(22, 160, 133),
-    2px 2px 0 rgb(22, 160, 133),
-    3px 3px 0 rgb(22, 160, 133),
-    4px 4px 0 rgb(22, 160, 133),
-    5px 5px 0 rgb(22, 160, 133),
-    6px 6px 0 rgb(22, 160, 133),
-    7px 7px 0 rgb(22, 160, 133)
    ;
   }
   100% {
-    transform: translateY(7px);
-    transform: translateX(7px);
-    box-shadow:
-    1px 1px 0 rgb(22, 160, 133),
-    2px 2px 0 rgb(22, 160, 133),
-    3px 3px 0 rgb(22, 160, 133),
-    4px 4px 0 rgb(22, 160, 133),
-    5px 5px 0 rgb(22, 160, 133),
-    6px 6px 0 rgb(22, 160, 133),
-    7px 7px 0 rgb(22, 160, 133)
+    transform: translateY(7px) translateX(7px);
+    box-shadow: none
    ;
   }
 }
+
+
+#brandFilter-wrapper>input{ display: none; }
+
+label{
+  display: inline-block;
+  margin: 3px;
+  padding: 5px;
+  text-transform: uppercase; 
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  box-shadow: 0 1px 0 #bbb;
+}
+
+input:not(:checked) + label{
+  background: none;
+  box-shadow: none;
+  margin: 5px 3p 1px;
+}
+
+.green{ background-color: green;}
+.yellow{background-color: yellow;}
+.red{  background-color: red;}
+.violet{background-color: violet;}
+.blue{background-color: blue;}
+
+.tag{
+  display: inline-block; 
+  padding: 3px 5px;
+}
+
+
+
+input#green:not(:checked) ~ .container .item.green,
+input#yellow:not(:checked) ~ .container .item.yellow,
+input#red:not(:checked) ~ .container .item.red,
+input#violet:not(:checked) ~ .container .item.violet,
+input#blue:not(:checked) ~ .container .item.blue{
+  display: none;
+}
+
+.item{
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid gray;
+  background: none;
+}
+
+label:after{
+  content: attr(for) " label";
+}
+
+
+
 
