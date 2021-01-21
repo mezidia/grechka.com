@@ -3,10 +3,8 @@
 const cheerio = require('cheerio');
 const request = require('request');
 
-let n = 0;
-
 grab('https://rozetka.com.ua/ua/krupy/c4628397/sort=cheap;vid-225787=grechka/');
-const brends = [];
+const brands = [];
 
 function grab(site) {
   request(site, (error, response, html) => {
@@ -17,24 +15,24 @@ function grab(site) {
       $(el).find('a').each((t, item) => {
         const title = $(item).text();
         const index = title.lastIndexOf('(');
-        const brend = title.slice(0, index);
-        brends.push(brend.trim());
+        const brand = title.slice(0, index);
+        brands.push(brand.trim());
       });
-    })
+    });
     $('.goods-tile').each((i, el) => {
-      if (n === 10) return;
+      if (i >= 10) return;
       const title = $(el).find('.goods-tile__title').text();
       const link = $(el).find('.goods-tile__picture').attr('href');
       const img = $(el).find('.lazy_img_hover').attr('src');
       const price = $(el).find('.goods-tile__price-value').text();
-      const weight = title.match(/(\d\,\d+|\d+) к?г/gm);
+      let weight = title.match(/(\d\,\d+|\d+) к?г/gm);
+      if (weight) weight = weight[0];
       let manufacturer = null;
-      for (let i = 0; i < brends.length; i++) {
-        const isB = title.toLowerCase().includes(brends[i].toLowerCase());
-        if (isB) manufacturer = brends[i];
+      for (let i = 0; i < brands.length; i++) {
+        const isB = title.toLowerCase().includes(brands[i].toLowerCase());
+        if (isB) manufacturer = brands[i];
       }
-      console.log(title, link, img, price, weight, manufacturer);
-      n++;
+      console.log(i, title, link, img, price, weight, manufacturer);
     });
   });
 }
