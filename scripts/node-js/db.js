@@ -13,18 +13,6 @@ class DB{
     });
   }
 
-  // Close the database connection
-  // Vars: db - object
-  close () {
-    this.db.close((err) => {
-      if (err) {
-        return console.error(err.message);
-      }
-      console.log('Close the database connection.');
-    });
-    // ** Maybe we can return True here ** //
-  };
-
   // Get all rows from table
   // Vars: sql - str, parameters - array
   // Example: `SELECT DISTINCT Name FROM playlists ORDER BY Name`;
@@ -53,11 +41,42 @@ class DB{
   // Vars: sql - str, parameters - array
   // Example: 'INSERT INTO table VALUES ' + data;
   insert (sql, parameters) {
-    this.db.run(sql, parameters, function(err) {
+    this.run(db, sql, parameters);
+  };
+
+  // Update data in table
+  // Vars: sql - str, parameters - array
+  // Example: `UPDATE langs SET name = ? WHERE name = ?`;
+  update (sql, parameters) {
+    this.run(db, sql, parameters);
+  };
+
+  // Delete data from table
+  // Vars: sql - str, parameters - array
+  // Example: `DELETE FROM table WHERE rowid=?`
+  delete (sql, parameters) {
+    this.run(db, sql, parameters);
+  };
+
+  // Close the database connection
+  // Vars: db - object
+  close () {
+    this.db.close((err) => {
       if (err) {
         return console.error(err.message);
       }
-      console.log(`Rows inserted ${this.changes}`);
+      console.log('Close the database connection.');
+    });
+    // ** Maybe we can return True here ** //
+  };
+
+  // Common function
+  run(db, sql, parameters) {
+    db.run(sql, parameters, (err) => {
+      if (err) {
+        return console.error(err.message);
+      }
+      return true;
     });
   }
 }
