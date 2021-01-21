@@ -1,0 +1,27 @@
+{
+  "name": "grechka.com",
+  "version": "1.0.0",
+  "description": "Cheapest grechka find here!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mezidia/grechka.com.git"
+  },
+  "keywords": [
+    "js",
+    "web"
+  ],
+  "author": "mezidia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mezidia/grechka.com/issues"
+  },
+  "homepage": "https://github.com/mezidia/grechka.com#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "request": "^2.88.2"
+  }
+}
