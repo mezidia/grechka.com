@@ -17,7 +17,8 @@ function grab(site) {
       const link = $(el).attr('href');
       const img = $(el).find('img').attr('src');
       const price = $(el).find('.Price__value_caption').text();
-      console.log(title, link, img, price);
+      const weight = $(el).find('.product-tile__weight').text();
+      console.log(title, 'https://auchan.zakaz.ua' + link, img, price, weight);
       n++;
     });
   });
