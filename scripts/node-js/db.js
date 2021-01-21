@@ -5,18 +5,19 @@ const sqlite3 = require('sqlite3').verbose();
 class DB{
   constructor (path) {
     // Open database in memory
+    // Create db field
     this.db = new sqlite3.Database(path, sqlite3.OPEN_READWRITE, (err) => {
       if (err) {
         return console.error(err.message);
       }
       console.log('Connected to the in-memory SQlite database.');
-      return db;
     });
   }
 
   // Close the database connection
-  close (db) {
-    db.close((err) => {
+  // Vars: db - object
+  close () {
+    this.db.close((err) => {
       if (err) {
         return console.error(err.message);
       }
@@ -26,10 +27,9 @@ class DB{
   };
 
   // Get all rows from table
-  getAll (db, table, row) {
-    let sql = `SELECT ? FROM ?`;
-  
-    db.all(sql, [table, row], (err, rows) => {
+  // Vars: sql - str, parameters - array
+  getAll (sql, parameters) {
+    this.db.all(sql, parameters, (err, rows) => {
       if (err) {
         throw err;
       }
@@ -38,10 +38,9 @@ class DB{
   };
 
   // Get first row only
-  getFirst (db, table, rowToGet, valueToSearch,value) {
-    let sql = `SELECT ? FROM ? WHERE ? = ?`;
-
-    db.get(sql, [rowToGet, table, valueToSearch, value], (err, row) => {
+  // Vars: sql - str, parameters - array
+  getFirst (sql, parameters) {
+    this.db.get(sql, parameters, (err, row) => {
       if (err) {
         return console.error(err.message);
       }
