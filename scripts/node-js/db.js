@@ -36,8 +36,21 @@ const getAll = (db, table, row) => {
   });
 };
 
+// Get first row only
+const getFirst = (db, table, rowToGet, valueToSearch,value) => {
+  let sql = `SELECT ? FROM ? WHERE ? = ?`;
+
+  db.get(sql, [rowToGet, table, valueToSearch, value], (err, row) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    return row;
+  });
+};
+
 export default {
   connect,
   close,
   getAll,
+  getFirst,
 }
