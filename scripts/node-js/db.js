@@ -78,7 +78,7 @@ class DB{
       }
       return true;
     });
-  }
-}
+  };
+};
 
 export default DB;
