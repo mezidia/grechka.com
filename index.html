@@ -21,29 +21,71 @@
         <div id="filters-header"><h2>Filters</h2></div>
         <div id="filters-wraper">
           <div class="filter-cell">
-            <div class="filter-cell-header">cell-header</div>
+            <div class="filter-cell-header">Обмеження ціни</div>
+            <div class="filter-cell-input">
+                <input type="text" class="priceLimit-input" placeholder="from" />
+                <input type="text" class="priceLimit-input" placeholder="to" />
+            </div>
+            <button type="button" id="submitPriceLimit-btn">Підтвердити</button>
+          </div>
+          <div class="filter-cell">
+            <div class="filter-cell-header">Вага</div>
             <div class="filter-cell-btn">
               <input id="checkbox-1" type="checkbox" name="checkbox" value="1" checked>
-              <label class="checkbox-btn" for="checkbox-1"></label>
-              <span class="label-text">filter-cell-text</span>
+              <label for="checkbox-1"></label>
+              <span class="label-text">100 - 500 гр</span>
             </div>
              
             <div class="filter-cell-btn">
-              <input id="checkbox-2" type="checkbox" name="checkbox" value="2">
+              <input id="checkbox-2" type="checkbox" name="checkbox" value="2"  checked>
               <label for="checkbox-2"></label>
-              <span class="label-text">filter-cell-text</span>
+              <span class="label-text">500 - 1000 гр</span>
             </div>
              
             <div class="filter-cell-btn">
-              <input id="checkbox-3" type="checkbox" name="checkbox" value="3">
+              <input id="checkbox-3" type="checkbox" name="checkbox" value="3"  checked>
               <label for="checkbox-3"></label>
-              <span class="label-text">filter-cell-text</span>
+              <span class="label-text">1000 гр +</span>
+            </div>
+          </div>
+          <div class="filter-cell">
+            <div class="filter-cell-header">Тип упаковки</div>
+            <div class="filter-cell-btn">
+              <input id="checkbox-4" type="checkbox" name="checkbox" value="4" checked>
+              <label for="checkbox-4"></label>
+              <span class="label-text">Папір</span>
             </div>
              
             <div class="filter-cell-btn">
-              <input id="checkbox-4" type="checkbox" name="checkbox" value="4" disabled>
-              <label for="checkbox-4"></label>
-              <span class="label-text">filter-cell-text</span>
+              <input id="checkbox-5" type="checkbox" name="checkbox" value="5"  checked>
+              <label for="checkbox-5"></label>
+              <span class="label-text">Пластик</span>
+            </div>
+             
+            <div class="filter-cell-btn">
+              <input id="checkbox-6" type="checkbox" name="checkbox" value="6"  checked>
+              <label for="checkbox-6"></label>
+              <span class="label-text">Поліетилен</span>
+            </div>
+          </div>
+          <div class="filter-cell">
+            <div class="filter-cell-header">Ціновий сегмент</div>
+            <div class="filter-cell-btn">
+              <input id="checkbox-7" type="checkbox" name="checkbox" value="7" checked>
+              <label for="checkbox-7"></label>
+              <span class="label-text">Бюджетний</span>
+            </div>
+             
+            <div class="filter-cell-btn">
+              <input id="checkbox-8" type="checkbox" name="checkbox" value="8"  checked>
+              <label for="checkbox-8"></label>
+              <span class="label-text">Середній</span>
+            </div>
+             
+            <div class="filter-cell-btn">
+              <input id="checkbox-9" type="checkbox" name="checkbox" value="9"  checked>
+              <label for="checkbox-9"></label>
+              <span class="label-text">Преміум</span>
             </div>
           </div>
         </div>

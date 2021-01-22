@@ -353,8 +353,8 @@ input {
 
 #filters-wraper {
   display: flex;
-  align-items: flex-start;
-  justify-content: left;
+  align-items: stretch;
+  justify-content: stretch;
   flex-direction: column;
 }
 
@@ -366,10 +366,10 @@ input {
 }
 
 .filter-cell {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-	margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
 }
 
 .filter-cell-btn input[type=radio] {
@@ -389,7 +389,7 @@ input {
 .filter-cell-btn label {
 	display: block;
   cursor: pointer;
-  margin: 20px;
+  margin: 10px;
   width: 15px;
   height: 15px;
   border: 1px solid rgb(176, 255, 176);
@@ -520,5 +520,60 @@ input {
 
 
 .filter-cell-header {
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 20px;
 }
+
+.filter-cell-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  justify-content: space-around;
+}
+
+.priceLimit-input {
+  display: block;
+  width: 75px;
+  height: 35px;
+  border:0.2em solid rgb(26, 188, 156);
+  box-shadow:
+  1px 1px 0 rgb(22, 160, 133),
+  2px 2px 0 rgb(22, 160, 133),
+  3px 3px 0 rgb(22, 160, 133),
+  4px 4px 0 rgb(22, 160, 133),
+  5px 5px 0 rgb(22, 160, 133),
+  6px 6px 0 rgb(22, 160, 133),
+  7px 7px 0 rgb(22, 160, 133)
+ ;
+}
+
+#submitPriceLimit-btn {
+  display: block;
+  width: 78%;
+  height: 35px;
+  align-self: center;
+  border:0.2em solid rgb(26, 188, 156);
+  background-color:rgb(26, 188, 156);
+  color:white;
+  border:none;
+  outline: none;
+  box-shadow:
+  1px 1px 0 rgb(22, 160, 133),
+  2px 2px 0 rgb(22, 160, 133),
+  3px 3px 0 rgb(22, 160, 133),
+  4px 4px 0 rgb(22, 160, 133),
+  5px 5px 0 rgb(22, 160, 133),
+  6px 6px 0 rgb(22, 160, 133),
+  7px 7px 0 rgb(22, 160, 133)
+ ;
+}
+
+#submitPriceLimit-btn:active {
+  animation: animateSearchbar .3s linear;
+}
+
