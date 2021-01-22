@@ -3,7 +3,6 @@
 const mongoose = require('mongoose');
 
 const manufacturerSchema = mongoose.Schema({
-  _manufacturerid: mongoose.Schema.Types.ObjectId,
   companyName: String,
   country: String,
 });
