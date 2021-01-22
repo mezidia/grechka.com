@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 const costSchema = mongoose.Schema({
-  productId: {type: Schema.Types.ObjectId, ref: 'Product'},
+  productId: mongoose.Schema.Types.ObjectId,
   price: Number,
   date: Date,
 });

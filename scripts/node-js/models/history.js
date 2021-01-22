@@ -3,8 +3,8 @@
 const mongoose = require('mongoose');
 
 const historySchema = mongoose.Schema({
-  productId: {type: Schema.Types.ObjectId, ref: 'Product'},
-  date: Number,
+  productId: mongoose.Schema.Types.ObjectId,
+  date: Date,
   price: Number,
 });
 

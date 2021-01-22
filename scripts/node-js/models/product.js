@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 
 const productSchema = mongoose.Schema({
   productName: String,
-  categoryId: {type: Schema.Types.ObjectId, ref: 'Category'},
-  ManufacturerId: {type: Schema.Types.ObjectId, ref: 'Manufacturer'},
+  categoryId: mongoose.Schema.Types.ObjectId,
+  ManufacturerId: mongoose.Schema.Types.ObjectId,
   weight: Number,
-  packageId: {type: Schema.Types.ObjectId, ref: 'Package'},
+  packageId: mongoose.Schema.Types.ObjectId,
   priceSegment: String,
   productURL: String,
   productImgURL: String,
