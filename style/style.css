@@ -1,5 +1,6 @@
 body{
   margin: 0px;
+  background-image: url("../img/404bg.jpg");
 }
 
 #siteWrap {
@@ -161,8 +162,12 @@ input {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+
 .productCell-grid {
+  justify-self: stretch;
   margin-left: 10px;
+  width: calc(100% - 135px);
+  min-width: 695px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 25px);
@@ -237,6 +242,8 @@ input {
 }
 
 #productsPlaceholder-wraper {
+  display: flex;
+  flex-direction: column;
   min-height: 700px;
   min-width: 850px;
 }
