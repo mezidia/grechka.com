@@ -7,14 +7,23 @@
     <link href="./favicon.ico" rel="icon" type="image/x-icon">
   </head>
   <body>
+
+    <div id="overlay" class="overlay">
+      <a href="javascript:void(0)" id="closebtn">&times;</a>
+      <div class="overlay-content">
+      </div>
+    </div>
+
     <div id="siteWrap">
       <div id="menu">
         <ul id="menu-wraper">
             <li><a class="menu-cell" href="#">Home</a></li>
             <li><a class="menu-cell" href="#">About</a></li>
-            <li><a class="menu-cell" href="#">Service</a></li>
-            <li><a class="menu-cell" href="#">Portfolio</a></li>
-            <li><a class="menu-cell" href="#">Contact</a></li>
+            <li><a class="menu-cell" id="openbtn">
+              <div class="menuline"></div>
+              <div class="menuline"></div>
+              <div class="menuline"></div>
+            </a></li>
         </ul>
       </div>
       <div id="filters">
@@ -187,10 +196,10 @@
               <img id="telegram-ico" src="https://img.icons8.com/ios-filled/25/000000/telegram-app.png"/>
             </a>
             <a class="footer-btn" target="_blank" href="https://github.com/mezidia/grechka.com">
-              <img id="git-ico" src="./git_footer_ico.svg">
+              <img id="git-ico" src="./img/git_footer_ico.svg">
             </a>
             <a class="footer-btn" target="_blank" href="https://youtu.be/ByvnY9TdmxE">
-              <img id="geek_jornal-ico" src="./geek_jornal.png">
+              <img id="geek_jornal-ico" src="./img/geek_journal.png">
             </a>
             
           </div>    

@@ -92,7 +92,7 @@ input {
 
 #graphic {
   grid-column-start: 5;
-  grid-column-end: 5;
+  grid-column-end: 6;
   grid-row-start: 2;
   grid-row-end: 4;
   display: flex;
@@ -672,3 +672,65 @@ input {
   animation: animateSearchbar .3s linear;
 }
 
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+  z-index: 20;
+
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay #closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+#openbtn {
+  display: none;
+}
+
+.menuline {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+@media (max-width: 1500px) {
+  #openbtn {
+    display: block;
+  }
+  #graphic {
+    display: none;
+  }
+  #productsPlaceholder {
+    grid-column-end: 6;
+  }
+}
+
+@media (max-width: 1160px) {
+  #filters {
+    display: none;
+  }
+
+  #productsPlaceholder {
+    grid-column-start: 1;
+  }
+}
