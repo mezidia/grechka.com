@@ -1,7 +1,12 @@
 'use strict';
 
-const rozetka = require('./scripts/node-js/rozetkaGrabber');
-const ashan = require('./scripts/node-js/ashanGrabber');
+//grabbers
+
+//const rozetka = require('./scripts/node-js/novusGrabber');
+//const ashan = require('./scripts/node-js/ashanGrabber');
+//const novus = require('./scripts/node-js/novusGrabber');
+//const megaMarket = require('./scripts/node-js/megaMarketGrabber');
+
 const Server = require('./scripts/node-js/server').Server;
 
 //creating server
