@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../img/404bg.jpg");
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+h1, h2, h3 {
+  color: white;
+  text-align: center;
+  margin: 1vw;
+  background-color: rgba(122, 92, 92, 0.1);
+}
+
+.h1container {
+  margin: 0 auto;
+  width: 45vw;
+  box-shadow:
+  0.1vw 0.1vw 0 #ffffff,
+  0.2vw 0.2vw 0 #ffffff,
+  0.3vw 0.3vw 0 #ffffff,
+  0.4vw 0.4vw 0 #ffffff,
+  0.5vw 0.5vw 0 #ffffff,
+  0.6vw 0.6vw 0 #ffffff,
+  0.7vw 0.7vw 0 #ffffff,
+  0.8vw 0.8vw 0 #ffffff,
+  0.9vw 0.9vw 0 #ffffff,
+  1vw 1vw 0 #ffffff,
+  1.1vw 1.1vw 0 #ffffff,
+  1.2vw 1.2vw 0 #ffffff,
+  1.3vw 1.3vw 0 #ffffff,
+  1.4vw 1.4vw 0 #ffffff,
+  1.5vw 1.5vw 0 #ffffff,
+  1.6vw 1.6vw 0 #ffffff,
+  1.7vw 1.7vw 0 #ffffff,
+  1.8vw 1.8vw 0 #ffffff,
+  1.9vw 1.9vw 0 #ffffff,
+  2vw 2vw 0 #ffffff,
+  2.1vw 2.1vw 0 #ffffff,
+  2.2vw 2.2vw 0 #ffffff,
+  2.3vw 2.3vw 0 #ffffff,
+  2.4vw 2.4vw 0 #ffffff,
+  2.5vw 2.5vw 0 #ffffff,
+  2.6vw 2.6vw 0 #ffffff,
+  2.7vw 2.7vw 0 #ffffff,
+  2.8vw 2.8vw 0 #ffffff,
+  2.9vw 2.9vw 0 #ffffff,
+  3vw 3vw 0 #ffffff,
+  3.1vw 3.1vw 0 #ffffff,
+  3.2vw 3.2vw 0 #ffffff,
+  3.3vw 3.3vw 0 #ffffff,
+  3.4vw 3.4vw 0 #ffffff,
+  3.5vw 3.5vw 0 #ffffff,
+  3.6vw 3.6vw 0 #ffffff,
+  3.7vw 3.7vw 0 #ffffff,
+  3.8vw 3.8vw 0 #ffffff,
+  3.9vw 3.9vw 0 #ffffff,
+  4vw 4vw 0 #ffffff;
+  margin-bottom: 4.2vw;
+  margin-top: 4.2vw;
+
+}
+
+h1 {
+  font-size: 15vw;
+  margin: 0;
+}
+
+h2 {
+  font-size: 5vw;
+}
+
+h3 {
+  font-size: 3vw;
+}
+
+a {
+  color: wheat;
+}
