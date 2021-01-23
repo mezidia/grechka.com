@@ -137,7 +137,8 @@ input {
 #productsPlaceholder {
   grid-column-start: 2;
   grid-column-end: 5;
-
+  grid-row-start: 3;
+  grid-row-end: 10;
 }
 
 .productsholder-cell {
