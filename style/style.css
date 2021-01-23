@@ -1,4 +1,3 @@
-
 body{
   margin: 0px;
 }
@@ -139,6 +138,7 @@ input {
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 10;
+  min-width: 850px;
 }
 
 .productsholder-cell {
@@ -236,11 +236,9 @@ input {
   margin: 5px 0px 0px 0px;
 }
 
-.productsPlaceholder-wraper {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: stretch;
+#productsPlaceholder-wraper {
+  min-height: 700px;
+  min-width: 850px;
 }
 
 #graphic-wraper {
@@ -251,9 +249,84 @@ input {
 }
 
 #footer {
+  margin-top: 10px;
+  padding: 0px;
   position: absolute;
-  bottom: 0px;
-  height: 50px;
+  height: 70px;
+  width: 100%;
+  right: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: cadetblue;
+}
+
+#telegram-ico {
+  margin-right: 4px;
+}
+
+.footer-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 40%;
+  margin: 5px;
+  height: calc(100% - 10px);
+}
+
+.footer-cell>p>a, .footer-cell>p>a:visited  {
+  color: white;
+  text-decoration: none;
+}
+
+#footel-line {
+  display: block;
+  margin-top: 5px;
+  width: 100%;
+  height: 1px;
+  background-color: red;
+}
+
+#git-ico {
+  width: 27px;
+}
+
+#geek_jornal-ico {
+  width: 40px;
+}
+
+.footer-btn {
+  display: flex;
+  border-radius: 50%;
+  text-decoration: none;
+  color: white;
+  background-color: orangered;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  box-shadow:
+  1px 1px 0 rgb(22, 160, 133),
+  2px 2px 0 rgb(22, 160, 133),
+  3px 3px 0 rgb(22, 160, 133)
+ ;
+}
+
+.footer-btn:hover {
+  background-color:rgb(22, 160, 133); /* Градиент */
+  color: red;
+  box-shadow:
+  1px 1px 0 rgb(87, 247, 215),
+  2px 2px 0 rgb(22, 160, 133),
+  3px 3px 0 rgb(22, 160, 133)
+ ;
+}
+
+.footer-btn:active {
+  animation: animateSearchbar .3s linear;
 }
 
 
