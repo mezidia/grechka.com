@@ -98,8 +98,14 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
+  min-width: 300px;
   cursor: pointer;
+  background-color: #2196f3;
+  margin: 20px 10px 0px 0px;
+  box-shadow:
+  1px 1px 0 rgb(22, 160, 133),
+  2px 2px 0 rgb(22, 160, 133)
+ ;
 }
 
 #searchbar {
@@ -122,13 +128,16 @@ input {
   min-width: 300px;
   margin: 20px 0px 0px 10px;
   background-color: cadetblue;
+  box-shadow:
+  1px 1px 0 rgb(22, 160, 133),
+  2px 2px 0 rgb(22, 160, 133)
+ ;
 }
 
 #productsPlaceholder {
   grid-column-start: 2;
   grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 10;
+
 }
 
 .productsholder-cell {
@@ -233,11 +242,17 @@ input {
   justify-content: stretch;
 }
 
-#footer {
+#graphic-wraper {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  
+  align-items: stretch;
+  justify-content: stretch;
+  flex-direction: column;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0px;
+  height: 50px;
 }
 
 
