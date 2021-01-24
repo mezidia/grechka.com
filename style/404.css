@@ -14,7 +14,6 @@ h1, h2, h3 {
   color: white;
   text-align: center;
   margin: 1vw;
-  background-color: rgba(122, 92, 92, 0.1);
 }
 
 .h1container {
@@ -63,7 +62,6 @@ h1, h2, h3 {
   4vw 4vw 0 #ffffff;
   margin-bottom: 4.2vw;
   margin-top: 4.2vw;
-
 }
 
 h1 {
