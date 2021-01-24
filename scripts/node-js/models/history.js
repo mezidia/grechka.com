@@ -4,8 +4,7 @@ const mongoose = require('mongoose');
 
 const historySchema = mongoose.Schema({
   productId: mongoose.Schema.Types.ObjectId,
-  date: Date,
-  price: Number,
+  data: String
 });
 
 module.exports = mongoose.model('History', historySchema);
