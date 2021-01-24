@@ -63,7 +63,29 @@ const closeNav = () => {
   document.getElementById('overlay').style.width = '0';
 }
 
-document.addEventListener('click', (evt) => ({
+const graphRef = () => {
+  document.getElementById('graph_ref').style.display = 'none';
+  document.getElementById('filter_ref').style.display = 'none';
+  document.getElementById('secondary-graphic').style.display = 'block';
+}
+
+const filterRef = () => {
+  document.getElementById('graph_ref').style.display = 'none';
+  document.getElementById('filter_ref').style.display = 'none';
+  document.getElementById('secondary-filters').style.display = 'block';
+}
+
+const goBack = () => {
+  document.getElementById('secondary-graphic').style.display = 'none';
+  document.getElementById('secondary-filters').style.display = 'none'
+  document.getElementById('graph_ref').style.display = 'block';
+  document.getElementById('filter_ref').style.display = 'block';
+}
+
+document.addEventListener('click', (evt) => (({
+  graph_ref: graphRef,
+  filter_ref: filterRef,
+  backbtn: goBack,
   openbtn: openNav,
   closebtn: closeNav
-})[evt.target.id]());
+})[evt.target.id] || function(){})());

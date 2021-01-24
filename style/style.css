@@ -109,12 +109,15 @@ input {
 }
 
 #secondary-graphic {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
-  min-width: 300px;
-  max-width: 700px;
-  min-height: 200px;
+  position: fixed;
+  left: 5%;
+  top: 10%;
+  width: 90%;
+  height: 80vw;
+  max-height: 80vh;
   cursor: pointer;
   background-color: #2196f3;
   margin: 20px 10px 0px 0px;
@@ -136,11 +139,27 @@ input {
   
 }
 
-.filters {
+#main-filters {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
   grid-row-end: 10;
+  min-width: 300px;
+  margin: 20px 0px 0px 10px;
+  background-color: cadetblue;
+  box-shadow:
+  1px 1px 0 rgb(22, 160, 133),
+  2px 2px 0 rgb(22, 160, 133)
+ ;
+}
+
+#secondary-filters {
+  display: none;
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 60vw;
+  height: 80vh;
   min-width: 300px;
   margin: 20px 0px 0px 10px;
   background-color: cadetblue;
@@ -704,9 +723,6 @@ input {
 }
 
 .overlay-content {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
   position: relative;
   margin-top: 100px;
   width: 100%;
@@ -717,6 +733,13 @@ input {
   position: absolute;
   top: 20px;
   right: 45px;
+  font-size: 60px;
+}
+
+.overlay #backbtn {
+  position: absolute;
+  top: 20px;
+  left: 45px;
   font-size: 60px;
 }
 
@@ -744,6 +767,10 @@ input {
   display: none;
 }
 
+#filter_ref {
+  color: rgba(0, 0, 0, 0);
+}
+
 @media (max-width: 1500px) {
   .non-wide {
     display: block;
@@ -763,5 +790,12 @@ input {
 
   #productsPlaceholder {
     grid-column-start: 1;
+  }
+
+  #filter_ref {
+    color: #818181;
+  }
+  #filter_ref:hover {
+    color: #f1f1f1;
   }
 }
