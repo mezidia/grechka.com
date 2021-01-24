@@ -1,5 +1,8 @@
 'use strict';
 
+const Database = require('./scripts/node-js/dbFuncs').Database;
+const database = new Database();
+
 const Server = require('./scripts/node-js/server').Server;
 
 //creating server

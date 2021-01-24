@@ -7,7 +7,7 @@ const productSchema = mongoose.Schema({
   categoryId: mongoose.Schema.Types.ObjectId,
   ManufacturerId: mongoose.Schema.Types.ObjectId,
   weight: Number,
-  packageId: mongoose.Schema.Types.ObjectId,
+  price: Number,
   priceSegment: String,
   productURL: String,
   productImgURL: String,
