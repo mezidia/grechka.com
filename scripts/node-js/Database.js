@@ -35,7 +35,6 @@ class Database {
       let result = null
       try {
         result = await schemas[i].findOne(args).exec();
-        console.log('found ' + result);
       } catch (err) {
         console.error(err);
       }
@@ -55,7 +54,6 @@ class Database {
       try {
         const model = new schemas[i](args);
         result = await model.save();
-        console.log('added ' + result);
         if (schemas[i].modelName === 'Product') await this.updateHistory(result._id, result.price);
       } catch (err) {
         console.error(err);
@@ -100,7 +98,6 @@ class Database {
           await History.deleteOne({productId: product._id}).exec();
         }
         result = await schemas[i].deleteOne(args).exec();
-        console.log('removed ' + result);
       } catch (err) {
         console.error(err);
       }
