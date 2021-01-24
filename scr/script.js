@@ -9,7 +9,7 @@ const html = new HtmlManager(1);
 
 console.log(html);
 
-//html.clearProducts();
+html.clearProducts();
 
 const prod = {
   'prodName': 'prodName',
@@ -18,6 +18,24 @@ const prod = {
   'price': 'price',
   'description': 'description',
   'weight': '1300',
+}
+
+const prod1 = {
+  'prodName': 'prodName',
+  'prodImgURL': 'prodImgURL',
+  'prodURL': 'prodURL',
+  'price': 'price',
+  'description': 'description',
+  'weight': '1100',
+}
+
+const prod2 = {
+  'prodName': 'prodName',
+  'prodImgURL': 'prodImgURL',
+  'prodURL': 'prodURL',
+  'price': 'price',
+  'description': 'description',
+  'weight': '1200',
 }
 
 console.log(document.getElementsByClassName('filter-checkbox'));
@@ -32,6 +50,10 @@ for (const checkbox of checkboxes) {
 }
 
 html.addProduct(prod);
+html.addProduct(prod1);
+html.addProduct(prod2);
+
+html.sortByField('weight');
 
 const openNav = () => {
   document.getElementById('overlay').style.width = '100%';

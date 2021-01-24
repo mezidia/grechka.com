@@ -10,6 +10,28 @@ export default class ProductCell {
     this.weight = data.weight;
     this.description = data.description;
     this.elementID = id;
+    this.blockedByNfilters = 0;
+    this.domElement = undefined;
+  }
+
+  show() {
+    if (this.blockedByNfilters === 0) {
+      this.domElement.style.display = 'block';
+    } else this.domElement.style.display = 'none';
+  }
+
+  initializeDomElementVal() {
+    this.domElement = document.getElementById(this.elementID);
+    if (this.domElement) return true;
+    return 'dom element wans\'t inserted';
+  }
+
+  blockByFilter() {
+    this.blockedByNfilters++;
+  }
+
+  removeFilterBlock() {
+    this.blockedByNfilters--;
   }
 
   getElmentHtml() {
