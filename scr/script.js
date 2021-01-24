@@ -1,8 +1,11 @@
 'use strict';
 
+import FilterCheckbox from "./modules/filterCheckbox_class.js";
 import HtmlManager from "./modules/hmtlManager_class.js";
 
 const html = new HtmlManager(1);
+
+
 
 console.log(html);
 
@@ -14,6 +17,18 @@ const prod = {
   'prodURL': 'prodURL',
   'price': 'price',
   'description': 'description',
+  'weight': '1300',
+}
+
+console.log(document.getElementsByClassName('filter-checkbox'));
+const checkboxes = document.getElementsByClassName('filter-checkbox');
+
+for (const checkbox of checkboxes) {
+  checkbox.onclick = (event) => {
+    console.log(event.target);
+    console.log(new FilterCheckbox(event.target.id).rule);
+    html.filter(new FilterCheckbox(event.target.id).rule);
+  };
 }
 
 html.addProduct(prod);
@@ -25,7 +40,6 @@ const openNav = () => {
 const closeNav = () => {
   document.getElementById('overlay').style.width = '0';
 }
-
 
 document.addEventListener('click', (evt) => ({
   openbtn: openNav,
