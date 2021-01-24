@@ -4,13 +4,18 @@
     <title>grechka.com</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="./style/style.css">
-    <link href="./favicon.ico" rel="icon" type="image/x-icon">
+    <link href="./img/favicon.ico" rel="icon" type="image/x-icon">
   </head>
   <body>
 
     <div id="overlay" class="overlay">
       <a href="javascript:void(0)" id="closebtn">&times;</a>
       <div class="overlay-content">
+        <div class="graphic" id="secondary-graphic">
+          <div class="graphic-wraper">
+            <a class="graphic-canvas" href="#">graphic</a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -19,14 +24,14 @@
         <ul id="menu-wraper">
             <li><a class="menu-cell" href="#">Home</a></li>
             <li><a class="menu-cell" href="#">About</a></li>
-            <li><a class="menu-cell" id="openbtn">
+            <li class="non-wide"><a class="menu-cell" id="openbtn">
               <div class="menuline"></div>
               <div class="menuline"></div>
               <div class="menuline"></div>
             </a></li>
         </ul>
       </div>
-      <div id="filters">
+      <div class="filters" id="main-filters">
         <div id="filters-header"><h2>Filters</h2></div>
         <div id="filters-wraper">
           <div class="filter-cell">
@@ -99,8 +104,8 @@
           </div>
         </div>
       </div>
-      <div id="graphic">
-        <div id="graphic-wraper">
+      <div class="graphic" id="main-graphic">
+        <div class="graphic-wraper">
           <a class="graphic-canvas" href="#">graphic</a>
         </div>
       </div>

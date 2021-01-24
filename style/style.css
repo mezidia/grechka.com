@@ -90,7 +90,7 @@ input {
   }
 }
 
-#graphic {
+#main-graphic {
   grid-column-start: 5;
   grid-column-end: 6;
   grid-row-start: 2;
@@ -99,6 +99,22 @@ input {
   align-items: center;
   justify-content: center;
   min-width: 300px;
+  cursor: pointer;
+  background-color: #2196f3;
+  margin: 20px 10px 0px 0px;
+  box-shadow:
+  1px 1px 0 rgb(22, 160, 133),
+  2px 2px 0 rgb(22, 160, 133)
+ ;
+}
+
+#secondary-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+  max-width: 700px;
+  min-height: 200px;
   cursor: pointer;
   background-color: #2196f3;
   margin: 20px 10px 0px 0px;
@@ -120,7 +136,7 @@ input {
   
 }
 
-#filters {
+.filters {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
@@ -247,7 +263,7 @@ input {
   min-width: 850px;
 }
 
-#graphic-wraper {
+.graphic-wraper {
   display: flex;
   align-items: stretch;
   justify-content: stretch;
@@ -688,11 +704,13 @@ input {
 }
 
 .overlay-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
   position: relative;
-  top: 25%;
+  margin-top: 100px;
   width: 100%;
   text-align: center;
-  margin-top: 30px;
 }
 
 .overlay #closebtn {
@@ -702,8 +720,17 @@ input {
   font-size: 60px;
 }
 
-#openbtn {
-  display: none;
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
 }
 
 .menuline {
@@ -713,11 +740,15 @@ input {
   margin: 6px 0;
 }
 
+.non-wide {
+  display: none;
+}
+
 @media (max-width: 1500px) {
-  #openbtn {
+  .non-wide {
     display: block;
   }
-  #graphic {
+  #main-graphic {
     display: none;
   }
   #productsPlaceholder {
@@ -725,8 +756,8 @@ input {
   }
 }
 
-@media (max-width: 1160px) {
-  #filters {
+@media (max-width: 1200px) {
+  #main-filters {
     display: none;
   }
 

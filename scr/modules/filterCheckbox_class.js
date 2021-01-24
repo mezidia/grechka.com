@@ -1,7 +1,7 @@
 'use strict';
 
 export default class FilterCheckbox {
-  #setRule() {
+  _setRule() {
    let ruleCB = undefined;
    const ruleString = this.htmlElement.value;
    const splitedStr = ruleString.split(' ');
@@ -37,7 +37,7 @@ export default class FilterCheckbox {
   constructor(id) {
     this.htmlElement = document.getElementById(id);
     this.filterBy = this.htmlElement.name;
-    this.rule = this.#setRule();
+    this.rule = this._setRule();
   }
 
 }
