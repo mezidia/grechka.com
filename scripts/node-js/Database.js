@@ -3,7 +3,6 @@
 const mongoose = require('mongoose');
 const Category = require('./models/category');
 const Manufacturer = require('./models/manufacturer');
-const Cost = require('./models/cost');
 const History = require('./models/history');
 const Product = require('./models/product');
 
@@ -15,21 +14,12 @@ class Database {
     );
 
     this.connection = mongoose.connection;
-    this.connectionOpened = false;
-    this.schemas = [Category, Manufacturer, Cost, History, Product];
-  }
+    this.schemas = [Category, Manufacturer, History, Product];
 
-  //function for opening database connection
-  open() {
-    if (this.connectionOpened) return;
     this.connection.once('open', () => {
       console.log('MongoDB database connection established successfully');
     });
-  }
 
-  //function for closing database connection
-  close() {
-    if (!this.connectionOpened) return;
     this.connection.once('close', () => {
       console.log('MongoDB database connection closed successfully');
     });
