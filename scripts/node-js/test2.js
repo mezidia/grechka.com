@@ -4,9 +4,6 @@ const Database = require('./Database').Database;
 const port = `mongodb+srv://mezgoodle:${process.env.MONGO_PW}@grechkacom.dwpvy.mongodb.net/database?retryWrites=true&w=majority`;
 const database = new Database(port);
 
-//open database
-database.open();
-
 //add new category and find its id
 database.addNew('Category', {categoryType: 'Games'});
 const gamesCategory = database.find('Category', {categoryType: 'Games'});
@@ -43,4 +40,3 @@ console.log(history);
 
 //remove product
 database.remove('Product', {productName: 'Car'});
-
