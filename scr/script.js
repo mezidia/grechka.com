@@ -21,9 +21,9 @@ const prod = {
 }
 
 console.log(document.getElementsByClassName('filter-checkbox'));
-const checkboxs = document.getElementsByClassName('filter-checkbox');
+const checkboxes = document.getElementsByClassName('filter-checkbox');
 
-for (const checkbox of checkboxs) {
+for (const checkbox of checkboxes) {
   checkbox.onclick = (event) => {
     console.log(event.target);
     console.log(new FilterCheckbox(event.target.id).rule);
