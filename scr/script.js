@@ -17,3 +17,17 @@ const prod = {
 }
 
 html.addProduct(prod);
+
+const openNav = () => {
+  document.getElementById('overlay').style.width = '100%';
+}
+
+const closeNav = () => {
+  document.getElementById('overlay').style.width = '0';
+}
+
+
+document.addEventListener('click', (evt) => ({
+  openbtn: openNav,
+  closebtn: closeNav
+})[evt.target.id]());
