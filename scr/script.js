@@ -41,7 +41,21 @@ const closeNav = () => {
   document.getElementById('overlay').style.width = '0';
 }
 
-document.addEventListener('click', (evt) => ({
+const graphRef = () => {
+  document.getElementById('graph-ref').style.display = 'none';
+  document.getElementById('filter-ref').style.display = 'none';
+  document.getElementById('secondary-graphic').style.display = 'block';
+}
+
+const goBack = () => {
+  document.getElementById('secondary-graphic').style.display = 'none';
+  // document.getElementById('secondary-filters').style.display = 'none'
+  document.getElementById('graph-ref').style.display = 'block';
+  document.getElementById('filter-ref').style.display = 'block';
+}
+
+document.addEventListener('click', (evt) => (({
+  backbtn: goBack,
   openbtn: openNav,
   closebtn: closeNav
-})[evt.target.id]());
+})[evt.target.id] || function(){})());
