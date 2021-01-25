@@ -14,6 +14,13 @@ export default class HtmlManager {
     return HtmlManager._instance;
   }
 
+  _updateDOMlinks() {
+    const products = this._storage.getProducts();
+    for (const product of products) {
+      product.initializeDomElementVal();
+    }
+  }
+
   clearProducts() {
     this._storage.clearStorage();
     this._productsPlaceHolder.innerHTML = '';
@@ -25,14 +32,18 @@ export default class HtmlManager {
     this._productsPlaceHolder.innerHTML += product.getElmentHtml();
     product.initializeDomElementVal();
     this._storage.storageProduct(product);
+    this._updateDOMlinks();
   }
 
-  filter(ruleCB) {
+  filter(filter) {
+    const ruleCb = filter.ruleCb;
     const products = this._storage.getProducts();
     for (const product of products) {
-      console.log(product);
-      if (ruleCB(product.weight)) {
-        product.blockByFilter();
+      if (ruleCb(product)) {
+        if (filter.isChecked()) {
+          product.addFilterBlock();
+          console.log('add');
+        }  else product.removeFilterBlock(); console.log('remove');
       }
       product.show();
     }
@@ -43,8 +54,6 @@ export default class HtmlManager {
    const products = this._storage.getProducts();
    console.log(products);
    products.forEach((prod, i) => {
-    console.log(prod);
-    console.log(i);
     prod.domElement.style.order = i;
   });
   }

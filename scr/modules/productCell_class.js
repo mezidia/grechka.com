@@ -16,17 +16,19 @@ export default class ProductCell {
 
   show() {
     if (this.blockedByNfilters === 0) {
-      this.domElement.style.display = 'block';
+      this.domElement.style.display = 'flex';
     } else this.domElement.style.display = 'none';
   }
 
   initializeDomElementVal() {
     this.domElement = document.getElementById(this.elementID);
+    console.log(this.elementID);
+    console.log(this.domElement);
     if (this.domElement) return true;
     return 'dom element wans\'t inserted';
   }
 
-  blockByFilter() {
+  addFilterBlock() {
     this.blockedByNfilters++;
   }
 
@@ -50,6 +52,6 @@ export default class ProductCell {
         <a class="buy-btn" target="_blank" href="${this.prodURL}">${this.price}grn</a>
       </div>
     </div>
-  `
+  `;
   }
 }

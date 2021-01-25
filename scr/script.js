@@ -1,19 +1,13 @@
 'use strict';
 
-import FilterCheckbox from "./modules/filterCheckbox_class.js";
 import HtmlManager from "./modules/hmtlManager_class.js";
+import WeigthFilter from "./modules/weigthFilter_class.js";
 
-const html = new HtmlManager(1);
-
-
-
-console.log(html);
-
-html.clearProducts();
+const html = new HtmlManager();
 
 const prod = {
   'prodName': 'prodName',
-  'prodImgURL': 'prodImgURL',
+  'prodImgURL': 'https://img2.zakaz.ua/20200922.1600686893.ad72436478c_2020-09-22_Auchan_Alexey/20200922.1600686893.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.150nowm.jpg.150x.jpg',
   'prodURL': 'prodURL',
   'price': 'price',
   'description': 'description',
@@ -44,10 +38,13 @@ const checkboxes = document.getElementsByClassName('filter-checkbox');
 for (const checkbox of checkboxes) {
   checkbox.onclick = (event) => {
     console.log(event.target);
-    console.log(new FilterCheckbox(event.target.id).rule);
-    html.filter(new FilterCheckbox(event.target.id).rule);
+    console.log(new WeigthFilter(event.target.id).isChecked());
+    html.filter(new WeigthFilter(event.target.id));
+
   };
 }
+
+html.clearProducts();
 
 html.addProduct(prod);
 html.addProduct(prod1);
