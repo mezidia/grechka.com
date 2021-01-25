@@ -1,6 +1,23 @@
+:root {
+  --main-green-color: rgb(22, 160, 133);
+  --main-grafics-bg: white;
+  --main-filter-bg: rgb(255, 255, 255);
+  --main-btn-unchecked: gray;
+  --main-btn-checked:  rgb(22, 160, 133);
+}
+
+@font-face {
+  font-family: 'openSans';
+  src: url(./fonts/open-sans/);
+}
+
+* {
+  font-family: 'openSans', Arial, sans-serif;
+}
+
 body{
   margin: 0px;
-  background-image: url("../img/404bg.jpg");
+  background-color: rgb(255, 255, 255);
 }
 
 #siteWrap {
@@ -29,7 +46,8 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: bisque;
+  background-color: var(--main-green-color);
+  box-shadow: 20px 60px 40px rgba(168, 164, 164, 0.37);
 }
 
 #menu-wraper li {
@@ -41,7 +59,7 @@ input {
   display: block;
   margin: 0 10px;
   padding: 5px 10px;
-  color: #aaa;
+  color: white;
   font-size: 24px;
   text-decoration: none;
   text-transform: uppercase;
@@ -55,17 +73,20 @@ input {
   top: calc(50% - 2px);
   left: -100%;
   width: 100%;
-  height: 4px;
-  background: #2196f3;
-  transition: 0.5s;
+  height: 8px;
+  background: white;
+  opacity: 0.5;
+  transition: 0.3s;
 }
 
 #menu-wraper li a:hover {
-  color: #fff;
+  color: black;
 }
 
 #menu-wraper li a:hover::before {
-  animation: animate .5s linear forwards; 
+  animation: animate 0.3s linear forwards; 
+  background: white;
+  opacity: 0.5;
 }
 
 @keyframes animate {
@@ -85,7 +106,7 @@ input {
     top: 0;
     left: 0;
     height: 100%;
-    z-index: -1;
+    z-index: 1;
   }
 }
 
@@ -99,11 +120,11 @@ input {
   justify-content: center;
   min-width: 300px;
   cursor: pointer;
-  background-color: #2196f3;
+  background-color: var(--main-grafics-bg);
   margin: 20px 10px 0px 0px;
   box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133)
+  1px 1px 0 var(--main-green-color),
+  2px 2px 0 var(--main-green-color)
  ;
 }
 
@@ -118,11 +139,11 @@ input {
   height: 80vw;
   max-height: 80vh;
   cursor: pointer;
-  background-color: #2196f3;
+  background-color: var(--main-grafics-bg);
   margin: 20px 10px 0px 0px;
   box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133)
+  1px 1px 0 var(--main-green-color),
+  2px 2px 0 var(--main-green-color)
  ;
 }
 
@@ -145,10 +166,9 @@ input {
   grid-row-end: 10;
   min-width: 300px;
   margin: 20px 0px 0px 10px;
-  background-color: cadetblue;
+  background-color: var(--main-filter-bg);
   box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133)
+  1px 0 0 rgb(218, 216, 216)
  ;
 }
 
@@ -162,10 +182,9 @@ input {
   height: 650px;
   min-width: 300px;
   margin: 20px 0px 0px 10px;
-  background-color: cadetblue;
+  background-color: var(--main-filter-bg);
   box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133)
+  1px 0 0 var(--main-green-color)
  ;
 }
 
@@ -178,25 +197,31 @@ input {
 }
 
 .productsholder-cell {
-  margin: 5px;
+  margin: 0 5px;
   display: flex;
   flex-direction: row;
-  background-color: aquamarine;
   padding: 5px;
   height: 125px;
   min-width: 800px;
-  box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133)
- ;
+  background-color: white;
+  border-bottom: 1px solid rgb(218, 216, 216);
+}
+
+.productsholder-cell:hover {
+  background-color: rgba(127, 255, 212, 0.226);
 }
 
 .product-img {
   width: 125px;
   height: 125px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.product-img:hover {
+  width: 300px;
+  height: 300px;
+  z-index: 4;
+  margin: -75px 0 0 -75px;
+}
 
 .productCell-grid {
   justify-self: stretch;
@@ -223,39 +248,31 @@ input {
   grid-column-end: 6;
   grid-row-start: 3;
   grid-row-end: 6;
-  margin: 15px 35px 10px 50px;
+  margin: -40px 35px 80px 50px;
   display: flex;
   padding: 5px 15px;
   text-decoration: none;
   color: white;
-  background-color: orangered;
+  background-color:rgb(26, 188, 156);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 25px;
+  width: 200px;
   box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133),
-  3px 3px 0 rgb(22, 160, 133),
-  4px 4px 0 rgb(22, 160, 133),
-  5px 5px 0 rgb(22, 160, 133),
-  6px 6px 0 rgb(22, 160, 133),
-  7px 7px 0 rgb(22, 160, 133)
+  1px 1px 0 var(--main-green-color),
+  2px 2px 0 var(--main-green-color),
+  3px 3px 0 var(--main-green-color),
+  4px 4px 0 var(--main-green-color),
+  5px 5px 0 var(--main-green-color),
+  6px 6px 0 var(--main-green-color),
+  7px 7px 0 var(--main-green-color)
  ;
 }
 
 .buy-btn:hover {
-  background-color:rgb(22, 160, 133); /* Градиент */
-  color: red;
-  box-shadow:
-  1px 1px 0 rgb(87, 247, 215),
-  2px 2px 0 rgb(22, 160, 133),
-  3px 3px 0 rgb(22, 160, 133),
-  4px 4px 0 rgb(22, 160, 133),
-  5px 5px 0 rgb(22, 160, 133),
-  6px 6px 0 rgb(22, 160, 133),
-  7px 7px 0 rgb(22, 160, 133)
- ;
+  background-color: rgb(255, 255, 255);
+  color:rgb(26, 188, 156);
 }
 
 .buy-btn:active {
@@ -280,6 +297,7 @@ input {
   flex-direction: column;
   min-height: 700px;
   min-width: 850px;
+  border-right: 1px solid rgba(168, 164, 164, 0.37);
 }
 
 .graphic-wraper {
@@ -300,7 +318,7 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: cadetblue;
+  background-color: var(--main-green-color);
 }
 
 #telegram-ico {
@@ -317,7 +335,7 @@ input {
   height: calc(100% - 10px);
 }
 
-.footer-cell>p>a, .footer-cell>p>a:visited  {
+.footer-cell>p, .footer-cell>p>a:visited  {
   color: white;
   text-decoration: none;
 }
@@ -327,7 +345,7 @@ input {
   margin-top: 5px;
   width: 100%;
   height: 1px;
-  background-color: red;
+  background-color: black;
 }
 
 #git-ico {
@@ -343,16 +361,16 @@ input {
   border-radius: 50%;
   text-decoration: none;
   color: white;
-  background-color: orangered;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 40px;
   height: 40px;
   box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133),
-  3px 3px 0 rgb(22, 160, 133)
+  1px 1px 0 rgb(0, 0, 0),
+  2px 2px 0 rgb(0, 0, 0),
+  3px 3px 0 rgb(0, 0, 0)
  ;
 }
 
@@ -360,9 +378,9 @@ input {
   background-color:rgb(22, 160, 133); /* Градиент */
   color: red;
   box-shadow:
-  1px 1px 0 rgb(87, 247, 215),
-  2px 2px 0 rgb(22, 160, 133),
-  3px 3px 0 rgb(22, 160, 133)
+  1px 1px 0 rgb(25, 102, 87),
+  2px 2px 0 rgb(25, 102, 87),
+  3px 3px 0 rgb(25, 102, 87)
  ;
 }
 
@@ -384,13 +402,13 @@ input {
   display:block;
   font:1.2em 'Montserrat Alternates';
   box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133),
-  3px 3px 0 rgb(22, 160, 133),
-  4px 4px 0 rgb(22, 160, 133),
-  5px 5px 0 rgb(22, 160, 133),
-  6px 6px 0 rgb(22, 160, 133),
-  7px 7px 0 rgb(22, 160, 133)
+  1px 1px 0 var(--main-green-color),
+  2px 2px 0 var(--main-green-color),
+  3px 3px 0 var(--main-green-color),
+  4px 4px 0 var(--main-green-color),
+  5px 5px 0 var(--main-green-color),
+  6px 6px 0 var(--main-green-color),
+  7px 7px 0 var(--main-green-color)
  ;
 }
 
@@ -399,17 +417,18 @@ input {
   padding:0.6em;
   border:0.2em solid rgb(26, 188, 156);
   box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133),
-  3px 3px 0 rgb(22, 160, 133),
-  4px 4px 0 rgb(22, 160, 133),
-  5px 5px 0 rgb(22, 160, 133),
-  6px 6px 0 rgb(22, 160, 133),
-  7px 7px 0 rgb(22, 160, 133)
+  1px 1px 0 var(--main-green-color),
+  2px 2px 0 var(--main-green-color),
+  3px 3px 0 var(--main-green-color),
+  4px 4px 0 var(--main-green-color),
+  5px 5px 0 var(--main-green-color),
+  6px 6px 0 var(--main-green-color),
+  7px 7px 0 var(--main-green-color)
  ;
 }
 
 .searchfield>button {
+  cursor: pointer;
   padding:0.6em 0.8em;
   background-color:rgb(26, 188, 156);
   color:white;
@@ -418,60 +437,60 @@ input {
 }
 
 .searchfield>button:active {
-  animation: animateSearchbar .3s linear;
+  animation: animateSearchbar 0.5s linear;
 }
 
 @keyframes animateSearchbar {
   0% {
     transform: translateY(1px) translateX(1px);
     box-shadow:
-    1px 1px 0 rgb(22, 160, 133),
-    2px 2px 0 rgb(22, 160, 133),
-    3px 3px 0 rgb(22, 160, 133),
-    4px 4px 0 rgb(22, 160, 133),
-    5px 5px 0 rgb(22, 160, 133),
-    6px 6px 0 rgb(22, 160, 133),
+    1px 1px 0 var(--main-green-color),
+    2px 2px 0 var(--main-green-color),
+    3px 3px 0 var(--main-green-color),
+    4px 4px 0 var(--main-green-color),
+    5px 5px 0 var(--main-green-color),
+    6px 6px 0 var(--main-green-color),
    ;
   }
   15% {
     transform: translateY(2px) translateX(2px);
     box-shadow:
-    1px 1px 0 rgb(22, 160, 133),
-    2px 2px 0 rgb(22, 160, 133),
-    3px 3px 0 rgb(22, 160, 133),
-    4px 4px 0 rgb(22, 160, 133),
-    5px 5px 0 rgb(22, 160, 133),
+    1px 1px 0 var(--main-green-color),
+    2px 2px 0 var(--main-green-color),
+    3px 3px 0 var(--main-green-color),
+    4px 4px 0 var(--main-green-color),
+    5px 5px 0 var(--main-green-color),
    ;
   }
   25% {
     transform: translateY(3px) translateX(3px);
     box-shadow:
-    1px 1px 0 rgb(22, 160, 133),
-    2px 2px 0 rgb(22, 160, 133),
-    3px 3px 0 rgb(22, 160, 133),
-    4px 4px 0 rgb(22, 160, 133),
+    1px 1px 0 var(--main-green-color),
+    2px 2px 0 var(--main-green-color),
+    3px 3px 0 var(--main-green-color),
+    4px 4px 0 var(--main-green-color),
    ;
   }
   35% {
     transform: translateY(4px) translateX(4px);
     box-shadow:
-    1px 1px 0 rgb(22, 160, 133),
-    2px 2px 0 rgb(22, 160, 133),
-    3px 3px 0 rgb(22, 160, 133),
+    1px 1px 0 var(--main-green-color),
+    2px 2px 0 var(--main-green-color),
+    3px 3px 0 var(--main-green-color),
    ;
   }
   50% {
     transform: translateY(5px) translateX(5px);
     box-shadow:
-    1px 1px 0 rgb(22, 160, 133),
-    2px 2px 0 rgb(22, 160, 133),
+    1px 1px 0 var(--main-green-color),
+    2px 2px 0 var(--main-green-color),
 
    ;
   }
   75% {
     transform: translateY(6px) translateX(6px);
     box-shadow:
-    1px 1px 0 rgb(22, 160, 133),
+    1px 1px 0 var(--main-green-color),
    ;
   }
   100% {
@@ -489,10 +508,15 @@ input {
 }
 
 .filters-header {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: cyan;
+  justify-content: flex-end;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-weight: normal;
+  background-color: var(--main-filter-bg);
 }
 
 .filter-cell {
@@ -526,59 +550,59 @@ input {
   user-select: none;
   background-color: rgb(176, 255, 176);
   box-shadow:
-  1px 1px 0 rgb(0, 255, 34),
-  2px 2px 0 rgb(0, 255, 34),
-  3px 3px 0 rgb(0, 255, 34),
-  4px 4px 0 rgb(0, 255, 34)
+  1px 1px 0 var(--main-btn-checked),
+  2px 2px 0 var(--main-btn-checked),
+  3px 3px 0 var(--main-btn-checked),
+  4px 4px 0 var(--main-btn-checked)
  ;
 }
  
 /* Checked */
 .filter-cell-btn input[type=radio]:checked + label {
-  background: green;
+  background: gray;
   border-radius: 50%;
   box-shadow:
-  1px 1px 0 rgb(0, 255, 34),
-  2px 2px 0 rgb(0, 255, 34),
-  3px 3px 0 rgb(0, 255, 34),
-  4px 4px 0 rgb(0, 255, 34)
+  1px 1px 0 var(--main-btn-unchecked),
+  2px 2px 0 var(--main-btn-unchecked),
+  3px 3px 0 var(--main-btn-unchecked),
+  4px 4px 0 var(--main-btn-unchecked)
  ;
   animation: animateSearchbar .1s linear;
 
 }
  
 .filter-cell-btn input[type=checkbox]:checked + label {
-  background:green;
+  background:gray;
   box-shadow:
-  1px 1px 0 rgb(0, 255, 34),
-  2px 2px 0 rgb(0, 255, 34),
-  3px 3px 0 rgb(0, 255, 34),
-  4px 4px 0 rgb(0, 255, 34)
+  1px 1px 0 var(--main-btn-unchecked),
+  2px 2px 0 var(--main-btn-unchecked),
+  3px 3px 0 var(--main-btn-unchecked),
+  4px 4px 0 var(--main-btn-unchecked)
  ;
   animation: checkboxAnimation .1s linear;
 
 }
 
 .filter-cell-btn input[type=radio]:not(:checked) + label {
-  background: red;
+  background: var(--main-btn-checked);
   border-radius: 50%;
   box-shadow:
-  1px 1px 0 orangered,
-  2px 2px 0 orangered,
-  3px 3px 0 orangered,
-  4px 4px 0 orangered
+  1px 1px 0 var(--main-btn-checked),
+  2px 2px 0 var(--main-btn-checked),
+  3px 3px 0 var(--main-btn-checked),
+  4px 4px 0 var(--main-btn-checked)
  ;
   animation: uncheckboxAnimation .1s linear;
 
 }
  
 .filter-cell-btn input[type=checkbox]:not(:checked) + label {
-  background:red;
+  background:var(--main-btn-checked);
   box-shadow:
-  1px 1px 0 orangered,
-  2px 2px 0 orangered,
-  3px 3px 0 orangered,
-  4px 4px 0 orangered
+  1px 1px 0 var(--main-btn-checked),
+  2px 2px 0 var(--main-btn-checked),
+  3px 3px 0 var(--main-btn-checked),
+  4px 4px 0 var(--main-btn-checked)
  ;
   animation: uncheckboxAnimation .1s linear;
 
@@ -616,10 +640,10 @@ input {
   0% {
     transform: translateY(1px) translateX(1px);
     box-shadow:
-    1px 1px 0 rgb(22, 160, 133),
-    2px 2px 0 rgb(22, 160, 133),
-    3px 3px 0 rgb(22, 160, 133),
-    4px 4px 0 rgb(22, 160, 133),
+    1px 1px 0 var(--main-green-color),
+    2px 2px 0 var(--main-green-color),
+    3px 3px 0 var(--main-green-color),
+    4px 4px 0 var(--main-green-color),
 
    ;
   }
@@ -635,18 +659,16 @@ input {
   0% {
     transform: translateY(1px) translateX(1px);
     box-shadow:
-    1px 1px 0 rgb(22, 160, 133),
-    2px 2px 0 rgb(22, 160, 133),
-    3px 3px 0 rgb(22, 160, 133),
-    4px 4px 0 rgb(22, 160, 133),
+    1px 1px 0 var(--main-green-color),
+    2px 2px 0 var(--main-green-color),
+    3px 3px 0 var(--main-green-color),
+    4px 4px 0 var(--main-green-color),
 
    ;
   }
   100% {
     transform: translateY(7px) translateX(7px);
-    box-shadow: none
-   ;
-   background-color: red;
+    box-shadow: none;
   }
 }
 
@@ -674,34 +696,34 @@ input {
   height: 35px;
   border:0.2em solid rgb(26, 188, 156);
   box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133),
-  3px 3px 0 rgb(22, 160, 133),
-  4px 4px 0 rgb(22, 160, 133),
-  5px 5px 0 rgb(22, 160, 133),
-  6px 6px 0 rgb(22, 160, 133),
-  7px 7px 0 rgb(22, 160, 133)
+  1px 1px 0 var(--main-green-color),
+  2px 2px 0 var(--main-green-color),
+  3px 3px 0 var(--main-green-color),
+  4px 4px 0 var(--main-green-color),
+  5px 5px 0 var(--main-green-color),
+  6px 6px 0 var(--main-green-color),
+  7px 7px 0 var(--main-green-color)
  ;
 }
 
 #submitPriceLimit-btn {
   display: block;
   width: 78%;
+  cursor: pointer;
   height: 35px;
   align-self: center;
-  border:0.2em solid rgb(26, 188, 156);
   background-color:rgb(26, 188, 156);
   color:white;
   border:none;
   outline: none;
   box-shadow:
-  1px 1px 0 rgb(22, 160, 133),
-  2px 2px 0 rgb(22, 160, 133),
-  3px 3px 0 rgb(22, 160, 133),
-  4px 4px 0 rgb(22, 160, 133),
-  5px 5px 0 rgb(22, 160, 133),
-  6px 6px 0 rgb(22, 160, 133),
-  7px 7px 0 rgb(22, 160, 133)
+  1px 1px 0 var(--main-green-color),
+  2px 2px 0 var(--main-green-color),
+  3px 3px 0 var(--main-green-color),
+  4px 4px 0 var(--main-green-color),
+  5px 5px 0 var(--main-green-color),
+  6px 6px 0 var(--main-green-color),
+  7px 7px 0 var(--main-green-color)
  ;
 }
 
