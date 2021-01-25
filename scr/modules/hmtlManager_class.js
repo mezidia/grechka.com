@@ -9,7 +9,7 @@ export default class HtmlManager {
   _graphRef = document.getElementById('graph_ref');
   _filterRef = document.getElementById('filter_ref');
   _secondaryGraphic = document.getElementById('secondary-graphic');
-  _secondaryFilters = document.getElementById('secondary-filters');
+  _filters = document.getElementById('main-filters');
   _productsPlaceHolder = document.getElementById('productsPlaceholder-wraper');
   _sortRadioBtn = document.getElementsByName('sort');
   _priceFormFrom = document.getElementById('priceLimit-input-from');
@@ -107,25 +107,12 @@ export default class HtmlManager {
   });
   }
 
-  synchronize = (mainToSecondary) => {
-    const checkboxes = document.getElementsByClassName('filter-checkbox');
-    const mainCheckboxes = [...checkboxes].filter(checkbox => checkbox.id.split('-')[1].length == 1);
-    const secondaryCheckboxes = [...checkboxes].filter(checkbox => checkbox.id.split('-')[1].length == 2);
-    for (let i = 0; i < mainCheckboxes.length; ++i) {
-      if(mainToSecondary) {
-        secondaryCheckboxes[i].checked = mainCheckboxes[i].checked;
-      } else {
-        mainCheckboxes[i].checked = secondaryCheckboxes[i].checked;
-      }
-    }
-  }
-
   goBack = () => {
-    this._secondaryFilters.style.display = 'none';
+    this._filters.style = '';
     this._secondaryGraphic.style.display = 'none';
     this._graphRef.style.display = 'block';
     this._filterRef.style.display = 'block';
-    this.synchronize(false);
+    this._filters.style.position = 'relative';
   }
 
   openNav = () => {
@@ -141,14 +128,13 @@ export default class HtmlManager {
     this._graphRef.style.display = 'none';
     this._filterRef.style.display = 'none';
     this._secondaryGraphic.style.display = 'block';
-    this.synchronize(true);
   }
   
   filterRef = () => {
     this._graphRef.style.display = 'none';
     this._filterRef.style.display = 'none';
-    this._secondaryFilters.style.display = 'block';
-    this.synchronize(true);
+    this._filters.style.display = 'block';
+    this._filters.style.position = 'absolute';
   }
   
 }
