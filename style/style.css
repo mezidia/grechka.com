@@ -548,40 +548,15 @@ input {
   user-select: none;
   background-color: rgb(176, 255, 176);
   box-shadow:
-  1px 1px 0 var(--main-btn-checked),
-  2px 2px 0 var(--main-btn-checked),
-  3px 3px 0 var(--main-btn-checked),
-  4px 4px 0 var(--main-btn-checked)
+  1px 1px 0 var(--main-btn-unchecked),
+  2px 2px 0 var(--main-btn-unchecked),
+  3px 3px 0 var(--main-btn-unchecked),
+  4px 4px 0 var(--main-btn-unchecked)
  ;
 }
  
 /* Checked */
 .filter-cell-btn input[type=radio]:checked + label {
-  background: gray;
-  border-radius: 50%;
-  box-shadow:
-  1px 1px 0 var(--main-btn-unchecked),
-  2px 2px 0 var(--main-btn-unchecked),
-  3px 3px 0 var(--main-btn-unchecked),
-  4px 4px 0 var(--main-btn-unchecked)
- ;
-  animation: animateSearchbar .1s linear;
-
-}
- 
-.filter-cell-btn input[type=checkbox]:checked + label {
-  background:gray;
-  box-shadow:
-  1px 1px 0 var(--main-btn-unchecked),
-  2px 2px 0 var(--main-btn-unchecked),
-  3px 3px 0 var(--main-btn-unchecked),
-  4px 4px 0 var(--main-btn-unchecked)
- ;
-  animation: checkboxAnimation .1s linear;
-
-}
-
-.filter-cell-btn input[type=radio]:not(:checked) + label {
   background: var(--main-btn-checked);
   border-radius: 50%;
   box-shadow:
@@ -590,17 +565,42 @@ input {
   3px 3px 0 var(--main-btn-checked),
   4px 4px 0 var(--main-btn-checked)
  ;
-  animation: uncheckboxAnimation .1s linear;
+  animation: animateSearchbar .1s linear;
 
 }
  
-.filter-cell-btn input[type=checkbox]:not(:checked) + label {
+.filter-cell-btn input[type=checkbox]:checked + label {
   background:var(--main-btn-checked);
   box-shadow:
   1px 1px 0 var(--main-btn-checked),
   2px 2px 0 var(--main-btn-checked),
   3px 3px 0 var(--main-btn-checked),
   4px 4px 0 var(--main-btn-checked)
+ ;
+  animation: checkboxAnimation .1s linear;
+
+}
+
+.filter-cell-btn input[type=radio]:not(:checked) + label {
+  background: gray;
+  border-radius: 50%;
+  box-shadow:
+  1px 1px 0 var(--main-btn-unchecked),
+  2px 2px 0 var(--main-btn-unchecked),
+  3px 3px 0 var(--main-btn-unchecked),
+  4px 4px 0 var(--main-btn-unchecked)
+ ;
+  animation: uncheckboxAnimation .1s linear;
+
+}
+ 
+.filter-cell-btn input[type=checkbox]:not(:checked) + label {
+  background:gray;
+  box-shadow:
+  1px 1px 0 var(--main-btn-unchecked),
+  2px 2px 0 var(--main-btn-unchecked),
+  3px 3px 0 var(--main-btn-unchecked),
+  4px 4px 0 var(--main-btn-unchecked)
  ;
   animation: uncheckboxAnimation .1s linear;
 
