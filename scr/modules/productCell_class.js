@@ -10,14 +10,22 @@ export default class ProductCell {
     this.weight = data.weight;
     this.description = data.description;
     this.elementID = id;
-    this.blockedByNfilters = 0;
+    this.allowByNfilters = {};
     this.domElement = undefined;
   }
 
+  _isShowAloowed() {
+    const valArr = Object.values(this.allowByNfilters);
+    if (valArr.includes(false)) return false;
+    return true;
+  }
+
   show() {
-    if (this.blockedByNfilters === 0) {
+    if (this._isShowAloowed()) {
       this.domElement.style.display = 'flex';
-    } else this.domElement.style.display = 'none';
+    } else {
+      this.domElement.style.display = 'none';
+    }
   }
 
   initializeDomElementVal() {
@@ -26,12 +34,12 @@ export default class ProductCell {
     return 'dom element wans\'t inserted';
   }
 
-  addFilterBlock() {
-    this.blockedByNfilters++;
+  addFilterBlock(id) {
+    this.allowByNfilters[id] = true;
   }
 
-  removeFilterBlock() {
-    this.blockedByNfilters--;
+  removeFilterBlock(id) {
+    this.allowByNfilters[id] = false;
   }
 
   getElmentHtml() {

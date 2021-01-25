@@ -16,6 +16,7 @@ export default class HtmlManager {
   _priceFormTo = document.getElementById('priceLimit-input-to');
   _priceFormSubmit = document.getElementById('submitPriceLimit-btn');
   _storage = new ProductsStorage();
+
   constructor() {
     if (!HtmlManager._instance) {
       HtmlManager._instance = this;
@@ -31,20 +32,25 @@ export default class HtmlManager {
   }
 
   submitPriceForm = () => {
-    const [from, to] = this.getPriceFormLimits();
+    let [from, to] = this.getPriceFormLimits();
     const reg = /^\d+$/;
     if (!reg.test(from) || !reg.test(to)) return;
+    //convert to numbers
+    from = +from;
+    to = +to;
     if (from >= to) return;
     const filter = {
       'ruleCb': (product) => {
-        const weight = +product.weight;
-        if (weight >= +from && weight <= +to) {
-          return false;
-        } else return true;
+        const price = +product.price;
+        if (price >= to || price <= from) {
+          return true;
+        } else return false;
       },
       'isChecked': () => {
-        return this._priceFormSubmit.textContent === 'Підтвердити' ? true : false;
-      }
+        return this._priceFormSubmit.textContent === 'Підтвердити' ? false : true;
+      },
+      'id': this._priceFormSubmit.id,
+
     };
     this.filter(filter);
     console.log(this._priceFormSubmit.textContent);
@@ -84,10 +90,10 @@ export default class HtmlManager {
     for (const product of products) {
       if (ruleCb(product)) {
         if (filter.isChecked()) {
-          product.addFilterBlock();
+          product.addFilterBlock(filter.id);
           console.log('add');
         } else {
-          product.removeFilterBlock();
+          product.removeFilterBlock(filter.id);
           console.log('remove');
         }
       }

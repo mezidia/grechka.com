@@ -4,7 +4,8 @@ export default class FilterCheckbox {
   _setRuleCb() {}
   
   constructor(id) {
-    this.htmlElement = document.getElementById(id);
+    this.id = id;
+    this.htmlElement = document.getElementById(this.id);
     this.filterBy = this.htmlElement.name;
     this.ruleCb = this._setRuleCb();
   }

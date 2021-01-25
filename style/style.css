@@ -449,7 +449,7 @@ input {
     3px 3px 0 var(--main-green-color),
     4px 4px 0 var(--main-green-color),
     5px 5px 0 var(--main-green-color),
-    6px 6px 0 var(--main-green-color),
+    6px 6px 0 var(--main-green-color)
    ;
   }
   15% {
@@ -459,7 +459,7 @@ input {
     2px 2px 0 var(--main-green-color),
     3px 3px 0 var(--main-green-color),
     4px 4px 0 var(--main-green-color),
-    5px 5px 0 var(--main-green-color),
+    5px 5px 0 var(--main-green-color)
    ;
   }
   25% {
@@ -468,7 +468,7 @@ input {
     1px 1px 0 var(--main-green-color),
     2px 2px 0 var(--main-green-color),
     3px 3px 0 var(--main-green-color),
-    4px 4px 0 var(--main-green-color),
+    4px 4px 0 var(--main-green-color)
    ;
   }
   35% {
@@ -476,27 +476,25 @@ input {
     box-shadow:
     1px 1px 0 var(--main-green-color),
     2px 2px 0 var(--main-green-color),
-    3px 3px 0 var(--main-green-color),
+    3px 3px 0 var(--main-green-color)
    ;
   }
   50% {
     transform: translateY(5px) translateX(5px);
     box-shadow:
     1px 1px 0 var(--main-green-color),
-    2px 2px 0 var(--main-green-color),
+    2px 2px 0 var(--main-green-color)
 
    ;
   }
   75% {
     transform: translateY(6px) translateX(6px);
     box-shadow:
-    1px 1px 0 var(--main-green-color),
-   ;
+    1px 1px 0 var(--main-green-color);
   }
   100% {
     transform: translateY(7px) translateX(7px);
-    box-shadow: none
-   ;
+    box-shadow: none;
   }
 }
 
