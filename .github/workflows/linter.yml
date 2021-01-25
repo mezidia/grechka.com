@@ -16,8 +16,7 @@ name: Lint Code Base
 #############################
 on:
   push:
-    branches-ignore: [master]
-    # Remove the line above to run when pushing to master
+    branches: [master]
   pull_request:
     branches: [master]
 
@@ -49,5 +48,3 @@ jobs:
       ################################
       - name: Lint Code Base
         uses: github/super-linter@v3
-        env:
-          DEFAULT_BRANCH: master
