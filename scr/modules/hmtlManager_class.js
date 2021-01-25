@@ -12,6 +12,9 @@ export default class HtmlManager {
   _filters = document.getElementById('main-filters');
   _productsPlaceHolder = document.getElementById('productsPlaceholder-wraper');
   _sortRadioBtn = document.getElementsByName('sort');
+  _priceFormFrom = document.getElementById('priceLimit-input-from');
+  _priceFormTo = document.getElementById('priceLimit-input-to');
+  _priceFormSubmit = document.getElementById('submitPriceLimit-btn');
   _storage = new ProductsStorage();
   constructor() {
     if (!HtmlManager._instance) {
@@ -27,6 +30,36 @@ export default class HtmlManager {
     }
   }
 
+  submitPriceForm() {
+    const [from, to] = this.getPriceFormLimits();
+    const reg = /^\d+$/;
+    if (!reg.test(from) || !reg.test(to)) return;
+    if (from >= to) return;
+    const filter = {
+      'ruleCb': (product) => {
+        const weight = +product.weight;
+        if (weight >= +from && weight <= +to) {
+          return false;
+        } else return true;
+      },
+      'isChecked': () => {
+        return this._priceFormSubmit.textContent === 'Підтвердити' ? true : false;
+      }
+    };
+    this.filter(filter);
+    console.log(this._priceFormSubmit.textContent);
+    const btnVal = this._priceFormSubmit.textContent === 'Підтвердити' ? 'Скасувати' : 'Підтвердити';
+    if (btnVal === 'Підтвердити') {
+      this._priceFormFrom.readOnly = false;
+      this._priceFormTo.readOnly = false;
+    } else {
+      this._priceFormFrom.readOnly = true;
+      this._priceFormTo.readOnly = true;
+    }
+    this._priceFormSubmit.textContent = btnVal;
+
+  }
+
   clearProducts() {
     this._storage.clearStorage();
     this._productsPlaceHolder.innerHTML = '';
@@ -39,6 +72,10 @@ export default class HtmlManager {
     product.initializeDomElementVal();
     this._storage.storageProduct(product);
     this._updateDOMlinks();
+  }
+
+  getPriceFormLimits() {
+    return [this._priceFormFrom.value, this._priceFormTo.value];
   }
 
   filter(filter) {
