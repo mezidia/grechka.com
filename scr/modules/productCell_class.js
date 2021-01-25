@@ -22,8 +22,6 @@ export default class ProductCell {
 
   initializeDomElementVal() {
     this.domElement = document.getElementById(this.elementID);
-    console.log(this.elementID);
-    console.log(this.domElement);
     if (this.domElement) return true;
     return 'dom element wans\'t inserted';
   }

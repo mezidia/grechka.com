@@ -30,7 +30,7 @@ export default class HtmlManager {
     }
   }
 
-  submitPriceForm() {
+  submitPriceForm = () => {
     const [from, to] = this.getPriceFormLimits();
     const reg = /^\d+$/;
     if (!reg.test(from) || !reg.test(to)) return;
@@ -86,7 +86,10 @@ export default class HtmlManager {
         if (filter.isChecked()) {
           product.addFilterBlock();
           console.log('add');
-        }  else product.removeFilterBlock(); console.log('remove');
+        } else {
+          product.removeFilterBlock();
+          console.log('remove');
+        }
       }
       product.show();
     }
