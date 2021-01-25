@@ -5,6 +5,11 @@ import ProductsStorage from "./poductsStorage_class.js";
 
 
 export default class HtmlManager {
+  _overlay = document.getElementById('overlay');
+  _graphRef = document.getElementById('graph_ref');
+  _filterRef = document.getElementById('filter_ref');
+  _secondaryGraphic = document.getElementById('secondary-graphic');
+  _secondaryFilters = document.getElementById('secondary-filters');
   _productsPlaceHolder = document.getElementById('productsPlaceholder-wraper');
   _storage = new ProductsStorage();
   constructor() {
@@ -58,7 +63,48 @@ export default class HtmlManager {
   });
   }
 
+  synchronize = (mainToSecondary) => {
+    const checkboxes = document.getElementsByClassName('filter-checkbox');
+    const mainCheckboxes = [...checkboxes].filter(checkbox => checkbox.id.split('-')[1].length == 1);
+    const secondaryCheckboxes = [...checkboxes].filter(checkbox => checkbox.id.split('-')[1].length == 2);
+    for (let i = 0; i < mainCheckboxes.length; ++i) {
+      if(mainToSecondary) {
+        secondaryCheckboxes[i].checked = mainCheckboxes[i].checked;
+      } else {
+        mainCheckboxes[i].checked = secondaryCheckboxes[i].checked;
+      }
+    }
+  }
+
+  goBack = () => {
+    this._secondaryFilters.style.display = 'none';
+    this._secondaryGraphic.style.display = 'none';
+    this._graphRef.style.display = 'block';
+    this._filterRef.style.display = 'block';
+    this.synchronize(false);
+  }
+
+  openNav = () => {
+    this._overlay.style.width = '100%';
+  }
+  
+  closeNav = () => {
+    this.goBack();
+    this._overlay.style.width = '0';
+  }
+  
+  graphRef = () => {
+    this._graphRef.style.display = 'none';
+    this._filterRef.style.display = 'none';
+    this._secondaryGraphic.style.display = 'block';
+    this.synchronize(true);
+  }
+  
+  filterRef = () => {
+    this._graphRef.style.display = 'none';
+    this._filterRef.style.display = 'none';
+    this._secondaryFilters.style.display = 'block';
+    this.synchronize(true);
+  }
+  
 }
-
-
-
