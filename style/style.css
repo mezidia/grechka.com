@@ -482,14 +482,14 @@ input {
   }
 }
 
-#filters-wraper {
+.filters-wraper {
   display: flex;
   align-items: stretch;
   justify-content: stretch;
   flex-direction: column;
 }
 
-#filters-header {
+.filters-header {
   display: flex;
   align-items: center;
   justify-content: center;
