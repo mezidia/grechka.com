@@ -57,8 +57,6 @@ const synchronize = mainToSecondary => {
   const checkboxes = document.getElementsByClassName('filter-checkbox');
   const mainCheckboxes = [...checkboxes].filter(checkbox => checkbox.id.split('-')[1].length == 1);
   const secondaryCheckboxes = [...checkboxes].filter(checkbox => checkbox.id.split('-')[1].length == 2);
-  console.debug(mainCheckboxes.map(x => x.id));
-  console.debug(secondaryCheckboxes.map(x => x.id));
   for (let i = 0; i < mainCheckboxes.length; ++i) {
     if(mainToSecondary) {
       secondaryCheckboxes[i].checked = mainCheckboxes[i].checked;
