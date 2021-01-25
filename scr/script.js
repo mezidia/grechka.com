@@ -52,6 +52,22 @@ html.addProduct(prod2);
 
 html.sortByField('weight');
 
+
+const synchronize = mainToSecondary => {
+  const checkboxes = document.getElementsByClassName('filter-checkbox');
+  const mainCheckboxes = [...checkboxes].filter(checkbox => checkbox.id.split('-')[1].length == 1);
+  const secondaryCheckboxes = [...checkboxes].filter(checkbox => checkbox.id.split('-')[1].length == 2);
+  console.debug(mainCheckboxes.map(x => x.id));
+  console.debug(secondaryCheckboxes.map(x => x.id));
+  for (let i = 0; i < mainCheckboxes.length; ++i) {
+    if(mainToSecondary) {
+      secondaryCheckboxes[i].checked = mainCheckboxes[i].checked;
+    } else {
+      mainCheckboxes[i].checked = secondaryCheckboxes[i].checked;
+    }
+  }
+}
+
 const openNav = () => {
   document.getElementById('overlay').style.width = '100%';
 }
@@ -65,12 +81,14 @@ const graphRef = () => {
   document.getElementById('graph_ref').style.display = 'none';
   document.getElementById('filter_ref').style.display = 'none';
   document.getElementById('secondary-graphic').style.display = 'block';
+  synchronize(true);
 }
 
 const filterRef = () => {
   document.getElementById('graph_ref').style.display = 'none';
   document.getElementById('filter_ref').style.display = 'none';
   document.getElementById('secondary-filters').style.display = 'block';
+  synchronize(true);
 }
 
 const goBack = () => {
@@ -78,6 +96,7 @@ const goBack = () => {
   document.getElementById('secondary-filters').style.display = 'none'
   document.getElementById('graph_ref').style.display = 'block';
   document.getElementById('filter_ref').style.display = 'block';
+  synchronize(false);
 }
 
 const handleClick = evt => ({
