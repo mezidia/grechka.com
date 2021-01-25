@@ -72,7 +72,7 @@ html.addProduct(prod3);
 html.sortByField('price');
 
 
-
+document.getElementById('submitPriceLimit-btn').onclick = () => html.submitPriceForm();
 
 const handleClick = evt => ({
   graph_ref: html.graphRef,
