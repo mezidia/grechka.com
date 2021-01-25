@@ -34,8 +34,10 @@ export default class ProductsStorage {
     return this._products[this._products.length - 1];
   }
 
-  sortByField(field) {
-    return this._products.sort(this._byField(field));
+  sortByField(field, reverse = false) {
+    const res = this._products.sort(this._byField(field));
+    if (reverse) res.reverse();
+    return res;
   }
 
 }

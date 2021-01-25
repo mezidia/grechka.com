@@ -6,6 +6,7 @@ import ProductsStorage from "./poductsStorage_class.js";
 
 export default class HtmlManager {
   _productsPlaceHolder = document.getElementById('productsPlaceholder-wraper');
+  _sortRadioBtn = document.getElementsByName('sort');
   _storage = new ProductsStorage();
   constructor() {
     if (!HtmlManager._instance) {
@@ -49,8 +50,14 @@ export default class HtmlManager {
     }
   }
 
-  sortByField(field) {
-   this._storage.sortByField(field);
+  getActiveRadioSort() {
+    for (const radio of this._sortRadioBtn) {
+      if (radio.checked) return radio;
+    }
+  }
+
+  sortByField(field, reverse = false) {
+   this._storage.sortByField(field, reverse);
    const products = this._storage.getProducts();
    console.log(products);
    products.forEach((prod, i) => {
