@@ -57,6 +57,7 @@ const openNav = () => {
 }
 
 const closeNav = () => {
+  goBack();
   document.getElementById('overlay').style.width = '0';
 }
 
@@ -79,10 +80,19 @@ const goBack = () => {
   document.getElementById('filter_ref').style.display = 'block';
 }
 
-document.addEventListener('click', (evt) => (({
+const handleClick = evt => ({
   graph_ref: graphRef,
   filter_ref: filterRef,
   backbtn: goBack,
   openbtn: openNav,
   closebtn: closeNav
-})[evt.target.id] || function(){})());
+})[evt.target.id]
+
+document.addEventListener('click', evt => {
+  if (handleClick(evt) === undefined) {
+    return;
+  } else {
+    handleClick(evt)();
+  }
+});
+

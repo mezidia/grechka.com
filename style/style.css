@@ -158,7 +158,8 @@ input {
   top: 15%;
   left: 20%;
   width: 60vw;
-  height: 80vh;
+  /* height: 80vh; */
+  height: 650px;
   min-width: 300px;
   margin: 20px 0px 0px 10px;
   background-color: cadetblue;
