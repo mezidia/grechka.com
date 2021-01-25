@@ -61,40 +61,15 @@ html.addProduct(prod2);
 
 html.sortByField('price');
 
-const openNav = () => {
-  document.getElementById('overlay').style.width = '100%';
-}
 
-const closeNav = () => {
-  goBack();
-  document.getElementById('overlay').style.width = '0';
-}
 
-const graphRef = () => {
-  document.getElementById('graph_ref').style.display = 'none';
-  document.getElementById('filter_ref').style.display = 'none';
-  document.getElementById('secondary-graphic').style.display = 'block';
-}
-
-const filterRef = () => {
-  document.getElementById('graph_ref').style.display = 'none';
-  document.getElementById('filter_ref').style.display = 'none';
-  document.getElementById('secondary-filters').style.display = 'block';
-}
-
-const goBack = () => {
-  document.getElementById('secondary-graphic').style.display = 'none';
-  document.getElementById('secondary-filters').style.display = 'none'
-  document.getElementById('graph_ref').style.display = 'block';
-  document.getElementById('filter_ref').style.display = 'block';
-}
 
 const handleClick = evt => ({
-  graph_ref: graphRef,
-  filter_ref: filterRef,
-  backbtn: goBack,
-  openbtn: openNav,
-  closebtn: closeNav
+  graph_ref: html.graphRef,
+  filter_ref: html.filterRef,
+  backbtn: html.goBack,
+  openbtn: html.openNav,
+  closebtn: html.closeNav
 })[evt.target.id]
 
 document.addEventListener('click', evt => {
