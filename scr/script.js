@@ -42,9 +42,8 @@ const prod3 = {
   'weight': 750,
 }
 
-console.log(document.getElementsByClassName('filter-checkbox'));
+// filters ini
 const checkboxes = document.getElementsByClassName('filter-checkbox');
-
 
 for (const checkbox of checkboxes) {
   checkbox.onclick = (event) => {
@@ -62,6 +61,11 @@ for (const checkbox of checkboxes) {
   };
 }
 
+function getProductsData() {
+  
+  fetch()
+}
+
 html.clearProducts();
 
 html.addProduct(prod);
@@ -71,10 +75,8 @@ html.addProduct(prod3);
 
 html.sortByField('price');
 
-
-document.getElementById('submitPriceLimit-btn').onclick = () => html.submitPriceForm();
-
 const handleClick = evt => ({
+  'submitPriceLimit-btn': html.submitPriceForm,
   graph_ref: html.graphRef,
   filter_ref: html.filterRef,
   backbtn: html.goBack,
