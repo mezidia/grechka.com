@@ -3,12 +3,11 @@
 import FilterCheckbox from "./filterCheckbox_class.js";
 import HtmlManager from "./hmtlManager_class.js";
 
-export default class TagFilter extends FilterCheckbox {
+export default class SortFilter extends FilterCheckbox {
   _setRuleCb() {
     return () => {
       const tag = this.htmlElement.value;
       const reverse = this._isReverse();
-      console.log(reverse);
       new HtmlManager().sortByField(tag, reverse);
 
     }

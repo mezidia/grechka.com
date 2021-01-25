@@ -2,7 +2,7 @@
 
 import HtmlManager from "./modules/hmtlManager_class.js";
 import WeigthFilter from "./modules/weigthFilter_class.js";
-import TagFilter from "./modules/tagFilter_class.js";
+import SortFilter from "./modules/sortFilter_class.js";
 
 const html = new HtmlManager();
 
@@ -12,7 +12,7 @@ const prod = {
   'prodURL': 'prodURL',
   'price': 100,
   'description': 'description',
-  'weight': 1300,
+  'weight': 300,
 }
 
 const prod1 = {
@@ -33,6 +33,15 @@ const prod2 = {
   'weight': 1200,
 }
 
+const prod3 = {
+  'prodName': 'prodName',
+  'prodImgURL': 'prodImgURL',
+  'prodURL': 'prodURL',
+  'price': 15,
+  'description': 'description',
+  'weight': 750,
+}
+
 console.log(document.getElementsByClassName('filter-checkbox'));
 const checkboxes = document.getElementsByClassName('filter-checkbox');
 
@@ -45,10 +54,10 @@ for (const checkbox of checkboxes) {
         html.filter(new WeigthFilter(event.target.id));
       } else if (event.target.name === 'revert') {
         const radioBtn = html.getActiveRadioSort();
-        html.filter(new TagFilter(radioBtn.id));
+        html.filter(new SortFilter(radioBtn.id));
       }
     } else if (event.target.type === 'radio') {
-      html.filter(new TagFilter(event.target.id));
+      html.filter(new SortFilter(event.target.id));
     }
   };
 }
@@ -58,6 +67,7 @@ html.clearProducts();
 html.addProduct(prod);
 html.addProduct(prod1);
 html.addProduct(prod2);
+html.addProduct(prod3);
 
 html.sortByField('price');
 
@@ -70,7 +80,7 @@ const handleClick = evt => ({
   backbtn: html.goBack,
   openbtn: html.openNav,
   closebtn: html.closeNav
-})[evt.target.id]
+})[evt.target.id];
 
 document.addEventListener('click', evt => {
   if (handleClick(evt) === undefined) {
