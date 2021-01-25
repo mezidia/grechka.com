@@ -3,9 +3,11 @@
 const cheerio = require('cheerio');
 const request = require('request');
 
+const GToKG = require('../GToKG').GToKG;
 const Database = require('../Database').Database;
-const port = `mongodb+srv://mezgoodle:cXiZf1YUZTNtMrX8@grechkacom.dwpvy.mongodb.net/database?retryWrites=true&w=majority`;
-const database = new Database(port);
+const config = require('../config.json');
+const dbVar = config.development.database;
+const database = new Database(dbVar);
 
 grab('https://novus.zakaz.ua/uk/categories/buckwheat/?sort=price_asc');
 const brands = [];
@@ -22,16 +24,16 @@ function grab(site) {
         brands.push(brand.trim());
 
         //check if brand is in DB
-        let brandInDB = null;
-        brandInDB = await database.find('Manufacturer', {companyName: brand});
-        if (brandInDB === null) await database.addNew('Manufacturer', {companyName: brand});
+        await database.checkDB('Manufacturer', {companyName: brand}).catch(err => {
+          console.log(err);
+        });
       });
     });
 
     //if no buckweat category add
-    let productCategory = null;
-    productCategory = await database.find('Product', {categoryType: 'buckwheat'});
-    if (productCategory === null) productCategory = await database.addNew('Product', {categoryType: 'buckwheat'});
+    const productCategory = await database.checkDB('Product', {categoryType: 'buckwheat'}).catch(err => {
+      console.log(err);
+    });
 
     //get first ten products
     $('.product-tile').each(async (i, el) => {
@@ -47,8 +49,10 @@ function grab(site) {
         const isB = title.toLowerCase().includes(brands[i].toLowerCase());
         if (!isB) continue;
         manufacturer = brands[i];
-        manufacturerId = await database.find('Manufacturer', {companyName: brands[i]});
-        if (manufacturerId !== null) manufacturerId = manufacturerId._id;
+        manufacturerId = await database.find('Manufacturer', {companyName: brands[i]}).catch(err => {
+          console.log('error when finding manufacturer of product' + err);
+        });
+        if (manufacturerId) manufacturerId = manufacturerId._id;
       }
       const product = {
         productName: title,
@@ -61,17 +65,9 @@ function grab(site) {
         productImgURL: img,
         description: null,
       }
-      let productInDB = null;
-      productInDB = await database.find('Product', {productName: title});
-      if (productInDB === null) await database.addNew('Product', product);
-      else await database.update('Product', {productName: title}, product);
-      console.log(product.productName);
+      await database.updateDB('Product', product).catch(err => {
+        console.log(err);
+      });
     });
   });
-}
-
-function GToKG(weight) {
-  if (weight === null) return null;
-  else if (weight.includes('кг')) return weight.substring(0, weight.length - 3).match(/\d+/gm)[0];
-  else return weight.substring(0, weight.length - 2).match(/\d+/gm)[0]/1000;
 }
