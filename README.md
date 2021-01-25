@@ -1,5 +1,4 @@
 # Grechka.com
-Мета цього проекту - створення вебсайту, який допомогає клієнтам знаходити найвигідніші ціни на гречану крупу. 
 
 [![Language](https://img.shields.io/badge/language-javascript-brightgreen?style=flat-square)](https://nodejs.org/uk/)
 
@@ -7,7 +6,19 @@ Hello everyone! This is the repository of the site grechka.com.
 
 ## Table of contents
 
-
+- [Table of contents](#table-of-contents)
+- [Motivation](#motivation)
+- [Build status](#build-status)
+- [Badges](#badges)
+- [Code style](#code-style)
+- [Screenshots](#screenshots)
+- [Tech/framework used](#techframework-used)
+- [Features](#features)
+- [Code Example](#code-example)
+- [Fast usage](#fast-usage)
+- [Contribute](#contribute)
+- [Credits](#credits)
+- [License](#license)
 
 ## Motivation
 
@@ -23,15 +34,14 @@ Here you can see build status of [continuous integration](https://en.wikipedia.o
 
 Other badges
 
-[![Build Status](https://img.shields.io/badge/Theme-Template-brightgreen?style=flat-square)](https://www.google.com.ua/)
+[![Theme](https://img.shields.io/badge/Theme-Web_Development-brightgreen?style=flat-square)](https://www.w3schools.com/whatis/)
+[![Platform](https://img.shields.io/badge/Platform-NodeJS-brightgreen?style=flat-square)](https://nodejs.org/uk/)
 
 ## Code style
 
-If you're using any code style like xo, standard etc. That will help others while contributing to your project.
+We are using [Codacy](https://www.codacy.com/) to automate our code quality.
 
-> I'm using [Codacy](https://www.codacy.com/) to automate my code quality.
-
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/66df46a0daa143cc870de7a1488e1bab)](https://www.codacy.com/gh/mezidia/grechka.com/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mezidia/grechka.com&amp;utm_campaign=Badge_Grade)
  
 ## Screenshots
 
@@ -41,7 +51,9 @@ Include logo/demo screenshot etc.
 
 **Built with**
 
-- [Electron](https://electron.atom.io)
+- [mongoose](https://mongoosejs.com/)
+- [http](https://nodejs.org/api/http.html)
+- [fs](https://nodejs.org/api/fs.html)
 
 ## Features
 
@@ -51,33 +63,93 @@ What makes your project stand out?
 
 ## Code Example
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+- Product schema
 
-## Installation
+```js
+const mongoose = require('mongoose');
 
-Provide step by step series of examples and explanations about how to get a development env running.
+const productSchema = mongoose.Schema({
+  productName: String,
+  categoryId: mongoose.Schema.Types.ObjectId,
+  manufacturerId: mongoose.Schema.Types.ObjectId,
+  weight: Number,
+  price: Number,
+  priceSegment: String,
+  productURL: String,
+  productImgURL: String,
+  description: String,
+});
+```
+
+- Server
+
+```js
+const http = require('http');
+const FileManager = require('./fileManager').FileManager;
+const fileManager = new FileManager();
+
+//types of request extensions
+const mime = {
+  'html': 'text/html',
+  'js': 'application/javascript',
+  'css': 'text/css',
+  'png': 'image/png',
+  'ico': 'image/x-icon',
+  '/date': 'text/plain',
+};
+
+class Server {
+  constructor(port) {
+    const server = http.createServer();
+    server.listen(port, () => {
+      console.log('Server running on port...');
+    });
+    server.on('request', this.handleRequest);
+  }
+
+  //function for handling requests
+  async handleRequest(req, res) {
+    const url = req.url;
+    let name = url;
+    const method = req.method;
+    let extention = url.split('.')[1];
+    if (method === 'GET') {
+      if (url === '/') {
+        extention = 'html';
+        name = '/main.html';
+      }
+      const typeAns = mime[extention];
+      let data = await fileManager.readFile('.' + name);
+      if (!data) {
+        console.log('no such file => ' + name);
+        //handle if no page
+        const pageNotFound = await fileManager.readFile('./scripts/html/noPageFound.html');
+        res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.write(pageNotFound);
+      } else if (typeof data === 'number') {
+        console.log('error occured => ' + name);
+        res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+      } else {
+        res.writeHead(200, { 'Content-Type': `${typeAns}; charset=utf-8` });
+        res.write(data);
+      }
+      res.end();
+    } else if (method === 'POST') {
+      console.log('POST');
+    }
+  }
+}
+
+module.exports = { Server };
+```
 
 ## Fast usage
 
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-> As tables
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-
-> As screenshot or :smile:I give you the [link](https://github.com/mezgoodle/sync-folders/actions?query=workflow%3A%22Python+package%22) to [GitHub Actions](https://github.com/features/actions), where you can see all my tests.
+Just open the link in the description and enjoy your pastime.
 
 ## Contribute
 
-Let people know how they can contribute into your project. A contributing guideline will be a big plus.
-
-> Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Also look at the [CONTRIBUTING.md](link).
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Also look at the [CONTRIBUTING.md](https://github.com/mezidia/grechka.com/blob/main/CONTRIBUTING.md).
 
 ## Credits
 
