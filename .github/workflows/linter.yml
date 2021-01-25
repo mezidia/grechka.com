@@ -48,3 +48,5 @@ jobs:
       ################################
       - name: Lint Code Base
         uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: master
