@@ -60,6 +60,7 @@ const openNav = () => {
 }
 
 const closeNav = () => {
+  goBack();
   document.getElementById('overlay').style.width = '0';
 }
 
