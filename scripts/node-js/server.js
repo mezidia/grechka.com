@@ -32,14 +32,14 @@ class Server {
     if (method === 'GET') {
       if (url === '/') {
         extention = 'html';
-        name = '/main.html';
+        name = '/public/index.html';
       }
       const typeAns = mime[extention];
       let data = await fileManager.readFile('.' + name);
       if (!data) {
         console.log('no such file => ' + name);
         //handle if no page
-        const pageNotFound = await fileManager.readFile('./scripts/html/noPageFound.html');
+        const pageNotFound = await fileManager.readFile('./public/pageNotFound.html');
         res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
         res.write(pageNotFound);
       } else if (typeof data === 'number') {

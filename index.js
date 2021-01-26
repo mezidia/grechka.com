@@ -1,9 +1,9 @@
 'use strict';
 
-const rozetka = require('./scripts/node-js/grabbers/rozetkaGrabber');
-const ashan = require('./scripts/node-js/grabbers/ashanGrabber');
-const novus = require('./scripts/node-js/grabbers/novusGrabber');
-const megaMarket = require('./scripts/node-js/grabbers/megaMarketGrabber');
+//const rozetka = require('./scripts/node-js/grabbers/rozetkaGrabber');
+//const ashan = require('./scripts/node-js/grabbers/ashanGrabber');
+//const novus = require('./scripts/node-js/grabbers/novusGrabber');
+//const megaMarket = require('./scripts/node-js/grabbers/megaMarketGrabber');
 const Server = require('./scripts/node-js/server').Server;
 const config = require('./scripts/node-js/config.json');
 const port = config.development.node_port;

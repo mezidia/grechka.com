@@ -1,8 +1,9 @@
 'use strict';
 
 const Database = require('./Database').Database;
-const port = `mongodb+srv://mezgoodle:cXiZf1YUZTNtMrX8@grechkacom.dwpvy.mongodb.net/database?retryWrites=true&w=majority`;
-const database = new Database(port);
+const config = require('./config.json');
+const dbVar = config.development.database;
+const database = new Database(dbVar);
 
 exec();
 
@@ -38,7 +39,10 @@ async function exec() {
   const product = await database.find('Product', {productName: 'Doll'});
   const productid = product._id;
   const history = await database.find('History', {productId: productid});
-  console.log('all history: ' + history);
+  //console.log('all history: ' + history);
+
+  const productsAll = await database.getAllByTableName('Product');
+  console.log('all products ' + productsAll);
 
   //remove product and all its history
   await database.remove('Product', {productName: 'Doll'});
