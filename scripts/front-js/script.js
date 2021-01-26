@@ -72,7 +72,7 @@ document.addEventListener('click', evt => {
 });
 
 window.onload = () => {
-  html.updateProducts();
-  drowGraphic();
+  //html.updateProducts();
+  //drowGraphic();
 }
 
