@@ -186,6 +186,7 @@ input {
   grid-row-start: 3;
   grid-row-end: 10;
   min-width: 850px;
+  min-height: 90%;
 }
 
 .productsholder-cell {
