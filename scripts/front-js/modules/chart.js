@@ -1,6 +1,7 @@
 'use strict';
 
 export default function loadChart(xs, ys) {
+  console.log('hello');
   const ctx = document.getElementById('chart').getContext('2d');
   const chartWrapper = document.getElementById('main-graphic');
   ctx.width = chartWrapper.width;

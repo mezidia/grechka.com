@@ -43,9 +43,9 @@ function drowGraphic() {
         'y': [],
       };
       for (const day of data) {
-        xy.x.push(day.price);
-        const y = day.date.join('-');
-        xy.y.push(y);
+        xy.y.push(day.price);
+        const x = day.date.join('-');
+        xy.x.push(x);
       }
       console.log(xy);
       loadChart(xy.x, xy.y);
