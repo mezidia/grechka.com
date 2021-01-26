@@ -1,11 +1,11 @@
 'use strict';
 
-function loadChart(xs, ys) {
+export default function loadChart(xs, ys) {
   const ctx = document.getElementById('chart').getContext('2d');
   const chartWrapper = document.getElementById('main-graphic');
   ctx.width = chartWrapper.width;
   ctx.height = chartWrapper.height;
-  const myChart = new Chart(ctx, {
+  new Chart(ctx, {
     type: 'line',
     data: {
       labels: xs,

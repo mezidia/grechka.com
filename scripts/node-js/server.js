@@ -57,9 +57,8 @@ class Server {
         data = JSON.stringify(data);
       } else if (url === '/getGraphicData') {
         console.log('/getGraphicData');
-        const history =  await db.getAllByTableName('History');
-        console.log(JSON.parse(history[0].data));
-        minPriceByDay(history);
+        const history = await db.getAllByTableName('History');
+        data = JSON.stringify(minPriceByDay(history));
       }
       const typeAns = mime[extention];
       if (!data) data = await fileManager.readFile('.' + name);

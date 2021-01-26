@@ -159,8 +159,10 @@ class Database {
       console.log('error when finding product history' + err);
     });
     if (history === null) {
-      history = new History({productId: id,
-                            data: '{}'});
+      history = new History({
+        productId: id,
+        data: '{}',
+      });
       await history.save().catch(err => {
         console.log('error when saving product history' + err);
       });;
