@@ -84,6 +84,28 @@ export default class HtmlManager {
     return [this._priceFormFrom.value, this._priceFormTo.value];
   }
 
+  updateProducts = () => {
+    this.clearProducts();
+    const sendOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    };
+    this.loader();
+    fetch('/getProdData', sendOptions)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.closeLoader();
+        data.forEach(product => {
+          this.addProduct(product);
+        });
+        this.sortByField('price');
+      })
+      .catch(err => console.log(err));
+  }
+
   filter(filter) {
     const ruleCb = filter.ruleCb;
     const products = this._storage.getProducts();
@@ -150,7 +172,7 @@ export default class HtmlManager {
     this._productsPlaceHolder.innerHTML = '<div class="lds-hourglass"></div>'
   }
 
-  clear = () => {
+  closeLoader = () => {
     this._productsPlaceHolder.innerHTML = '';
   }
 

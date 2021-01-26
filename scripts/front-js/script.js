@@ -3,7 +3,7 @@
 import HtmlManager from "./modules/hmtlManager_class.js";
 import WeigthFilter from "./modules/weigthFilter_class.js";
 import SortFilter from "./modules/sortFilter_class.js";
-import loadChart from "./chart.js";
+import loadChart from "./modules/chart.js";
 
 const html = new HtmlManager();
 html.clearProducts();
@@ -26,46 +26,8 @@ for (const checkbox of checkboxes) {
     }
   };
 }
-//when "GET" gets information from server
-function loadData(method, url, data, callback) {
-  const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      callback(xhr.response);
-    }
-  };
-  xhr.open(method, url, true);
-  xhr.responseType = 'text';
-  if (method === 'POST') {
-    xhr.send(data);
-  } else {
-    xhr.send();
-  }
-}
 
-function getProductsData() {
-  const sendOptions = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  };
-  html.loader();
-  fetch('/getProdData', sendOptions)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      html.clear();
-      data.forEach(product => {
-        html.addProduct(product);
-      });
-      html.sortByField('price');
-    })
-    .catch(err => console.log(err));
-}
-getProductsData();
-
-function getGraphicData() {
+function drowGraphic() {
   const sendOptions = {
     method: 'GET',
     headers: {
@@ -76,12 +38,23 @@ function getGraphicData() {
     .then(response => response.json())
     .then(data => {
       console.log(data);
+      const xy = {
+        'x': [],
+        'y': [],
+      };
+      for (const day of data) {
+        xy.x.push(day.price);
+        const y = day.date.join('-');
+        xy.y.push(y);
+      }
+      console.log(xy);
+      loadChart(xy.x, xy.y);
     })
     .catch(err => console.log(err));
 }
-getGraphicData();
 
 const handleClick = evt => ({
+  'search': html.updateProducts,
   'submitPriceLimit-btn': html.submitPriceForm,
   graph_ref: html.graphRef,
   filter_ref: html.filterRef,
@@ -98,5 +71,8 @@ document.addEventListener('click', evt => {
   }
 });
 
-document.onload = () => loadChart(getGraphicData());
+window.onload = () => {
+  html.updateProducts();
+  drowGraphic();
+}
 
