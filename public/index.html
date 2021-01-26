@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>grechka.com</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../style/style.css">
+    <link href="./img/favicon.ico" rel="icon" type="image/x-icon">
+  </head>
+  <body>
+
+    <div id="overlay" class="overlay">
+      <a href="javascript:void(0)" id="closebtn">&times;</a>
+      <a href="#" id="backbtn"><</a>
+      <div class="overlay-content">
+        <a href="#" id="graph_ref">Graphic</a>
+        <a href="#" id="filter_ref">Фільтри</a>
+        <div class="graphic" id="secondary-graphic">
+          <div class="graphic-wraper">
+            <a class="graphic-canvas" href="#">graphic</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="siteWrap">
+      <div id="menu">
+        <ul id="menu-wraper">
+            <li><a class="menu-cell" href="#">Головна</a></li>
+            <li><a class="menu-cell" href="#">Про нас</a></li>
+            <li class="non-wide"><a class="menu-cell" id="openbtn" href="#">
+              <div class="menuline"></div>
+              <div class="menuline"></div>
+              <div class="menuline"></div>
+            </a></li>
+        </ul>
+      </div>
+      <div class="filters" id="main-filters">
+        <div class="filters-header"><h2>Фільтри</h2></div>
+        <div class="filters-wraper">
+          <div class="filter-cell">
+            <div class="filter-cell-header">Обмеження ціни</div>
+            <div class="filter-cell-input">
+              <input type="text" id="priceLimit-input-from" class="priceLimit-input" placeholder="from" />
+              <input type="text" id="priceLimit-input-to" class="priceLimit-input" placeholder="to" />
+            </div>
+            <button type="button" id="submitPriceLimit-btn">Підтвердити</button>
+          </div>
+          <div class="filter-cell">
+            <div class="filter-cell-header">Вага</div>
+            <div class="filter-cell-btn">
+              <input class="filter-checkbox" id="checkbox-1" type="checkbox" name="weight" value="-500" checked>
+              <label for="checkbox-1"></label>
+              <span class="label-text">-500 гр</span>
+            </div>
+             
+            <div class="filter-cell-btn">
+              <input class="filter-checkbox" id="checkbox-2" type="checkbox" name="weight" value="500 1000"  checked>
+              <label for="checkbox-2"></label>
+              <span class="label-text">500 - 1000 гр</span>
+            </div>
+             
+            <div class="filter-cell-btn">
+              <input class="filter-checkbox" id="checkbox-3" type="checkbox" name="weight" value="+1000"  checked>
+              <label for="checkbox-3"></label>
+              <span class="label-text">1000 гр +</span>
+            </div>
+          </div>
+          <div class="filter-cell">
+            <div class="filter-cell-header">Coртувати за</div>
+            <div class="filter-cell-btn">
+              <input class="filter-checkbox" id="radio-4" type="radio" name="sort" value="price" checked>
+              <label for="radio-4"></label>
+              <span class="label-text">Ціною</span>
+            </div>
+             
+            <div class="filter-cell-btn">
+              <input class="filter-checkbox" id="radio-5" type="radio" name="sort" value="weight">
+              <label for="radio-5"></label>
+              <span class="label-text">Вагою</span>
+            </div>
+             
+            <div class="filter-cell-btn">
+              <input class="filter-checkbox" id="checkbox-6" type="checkbox" name="revert" value="revert">
+              <label for="checkbox-6"></label>
+              <span class="label-text">Зворотній порядок</span>
+            </div>
+          </div>
+          <div class="filter-cell">
+            <div class="filter-cell-header">Ціновий сегмент</div>
+            <div class="filter-cell-btn">
+              <input class="filter-checkbox" id="checkbox-7" type="checkbox" name="priceSegment" value="chip" checked>
+              <label for="checkbox-7"></label>
+              <span class="label-text">Бюджетний</span>
+            </div>
+             
+            <div class="filter-cell-btn">
+              <input class="filter-checkbox" id="checkbox-8" type="checkbox" name="priceSegment" value="middle"  checked>
+              <label for="checkbox-8"></label>
+              <span class="label-text">Середній</span>
+            </div>
+             
+            <div class="filter-cell-btn">
+              <input class="filter-checkbox" id="checkbox-9" type="checkbox" name="priceSegment" value="premium"  checked>
+              <label for="checkbox-9"></label>
+              <span class="label-text">Преміум</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="graphic" id="main-graphic">
+        <div class="graphic-wraper">
+          <a class="graphic-canvas" href="#">graphic</a>
+        </div>
+      </div>
+      <div id="searchbar">
+        <div id="searchbar-wraper">
+          <div class="searchfield" id="searchform">
+            <input type="text" id="searchterm" placeholder="hungry?&#128527;" />
+            <button type="button" id="search">Знайти!</button>
+          </div>
+        </div>
+      </div>
+      <div id="productsPlaceholder">
+        <div id="productsPlaceholder-wraper">
+        </div>
+        <div id="footer">
+          <span id="footel-line"></span>
+          <div class="footer-cell">
+            <p>&copy; 2021 <a target="_blank" href="https://github.com/mezidia">Mezidia
+            </a></p>
+            <a class="footer-btn" target="_blank" href="https://t.me/La7romast3rI">
+              <img id="telegram-ico" src="https://img.icons8.com/ios-filled/25/000000/telegram-app.png"/>
+            </a>
+            <a class="footer-btn" target="_blank" href="https://github.com/mezidia/grechka.com">
+              <img id="git-ico" src="./media/img/git_footer_ico.svg">
+            </a>
+            <a class="footer-btn" target="_blank" href="https://youtu.be/ByvnY9TdmxE">
+              <img id="geek_jornal-ico" src="./media/img/geek_journal.png">
+            </a>
+            
+          </div>    
+         </div>
+      </div>
+    </div>
+
+    </div>
+    <script type="module" src="../scripts/front-js/script.js"></script>
+    </body>
+</html>
