@@ -56,14 +56,9 @@ document.addEventListener('click', evt => {
 });
 
 window.onload = () => {
-<<<<<<< HEAD
   html.updateProducts().then(() => {
     initChecboxes();
   });
   drowGraphic();
-=======
-  html.updateProducts();
-  html.drawGraphic();
->>>>>>> 80e203fedaae330568dc13f812dc8173b80aa656
 }
 
