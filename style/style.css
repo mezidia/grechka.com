@@ -186,6 +186,7 @@ input {
   grid-row-start: 3;
   grid-row-end: 10;
   min-width: 850px;
+  min-height: 90%;
 }
 
 .productsholder-cell {
@@ -233,8 +234,10 @@ input {
   display: flex;
   justify-content: start;
   font-size: 20px;
-  overflow: hidden;
   text-overflow: ellipsis;
+  display: inline-block;
+  overflow: hidden;  
+  white-space: nowrap;
 }
 
 .buy-btn {
@@ -881,5 +884,4 @@ input {
 
 .main-text {
   min-height: 100%;
-  margin-bottom: -70px;
 }

@@ -2,8 +2,12 @@
 
 import ProductCell from "./productCell_class.js";
 import ProductsStorage from "./poductsStorage_class.js";
+<<<<<<< HEAD
+import loadChart from './chart.js'
+=======
 import TagFilterCell from "./tagFilterCell_class.js";
 
+>>>>>>> cd48a6186d534c4766ce693996938569ba1ffba5
 
 export default class HtmlManager {
   _overlay = document.getElementById('overlay');
@@ -186,6 +190,31 @@ export default class HtmlManager {
 
   closeLoader = () => {
     this._productsPlaceHolder.innerHTML = '';
+  }
+
+  drawGraphic = () => {
+    const sendOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    };
+    fetch('/getGraphicData', sendOptions)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        const xy = {
+          'x': [],
+          'y': [],
+        };
+        for (const day of data) {
+          xy.y.push(day.price);
+          const x = day.date.join('-');
+          xy.x.push(x);
+        }
+        loadChart(xy.x, xy.y);
+      })
+      .catch(err => console.log(err));
   }
 
 }

@@ -55,6 +55,10 @@ Include logo/demo screenshot etc.
 - [mongoose](https://mongoosejs.com/)
 - [http](https://nodejs.org/api/http.html)
 - [fs](https://nodejs.org/api/fs.html)
+- [cron](https://uk.wikipedia.org/wiki/Cron)
+- [Chart.js](https://github.com/chartjs/Chart.js)
+- [cheerio](https://github.com/cheeriojs/cheerio)
+- [request](https://github.com/request/request)
 
 ## Features
 

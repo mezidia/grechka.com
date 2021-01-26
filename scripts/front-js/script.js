@@ -35,30 +35,7 @@ function initChecboxes() {
   }
 }
 
-function drowGraphic() {
-  const sendOptions = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  };
-  fetch('/getGraphicData', sendOptions)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      const xy = {
-        'x': [],
-        'y': [],
-      };
-      for (const day of data) {
-        xy.y.push(day.price);
-        const x = day.date.join('-');
-        xy.x.push(x);
-      }
-      loadChart(xy.x, xy.y);
-    })
-    .catch(err => console.log(err));
-}
+
 
 const handleClick = evt => ({
   'search': html.updateProducts,
@@ -79,9 +56,14 @@ document.addEventListener('click', evt => {
 });
 
 window.onload = () => {
+<<<<<<< HEAD
   html.updateProducts().then(() => {
     initChecboxes();
   });
   drowGraphic();
+=======
+  html.updateProducts();
+  html.drawGraphic();
+>>>>>>> 80e203fedaae330568dc13f812dc8173b80aa656
 }
 
