@@ -302,7 +302,7 @@ input {
 
 #footer {
   position: absolute;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding: 0px;
   height: 70px;
   width: 100%;
@@ -877,4 +877,9 @@ input {
   100% {
     transform: rotate(1800deg);
   }
+}
+
+.main-text {
+  min-height: 100%;
+  margin-bottom: -70px;
 }
