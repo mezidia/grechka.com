@@ -220,7 +220,6 @@ input {
   justify-self: stretch;
   margin-left: 10px;
   width: calc(100% - 135px);
-  min-width: 695px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 25px);
@@ -253,7 +252,6 @@ input {
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  width: 200px;
   box-shadow:
   1px 1px 0 var(--main-green-color),
   2px 2px 0 var(--main-green-color),
