@@ -9,7 +9,6 @@ export default class TagFilter extends FilterCheckbox {
       const splitedStr = tagStr.split(' ');
       const tag = splitedStr[1];
       const val = this.htmlElement.value;
-      console.log(val, tag, product[tag]);
       if (!product[tag]) return false;
       if (product[tag] === val) {
         return true;

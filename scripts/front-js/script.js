@@ -14,17 +14,14 @@ function initChecboxes() {
 
   for (const checkbox of checkboxes) {
     checkbox.onclick = (event) => {
-      console.log(event.target);
       if (event.target.type === 'checkbox') {
         const name = event.target.name.split(' ')[0];
-        console.log(name);
         if(name === 'weight') {
           html.filter(new WeigthFilter(event.target.id));
         } else if (name === 'revert') {
          const radioBtn = html.getActiveRadioSort();
          html.filter(new SortFilter(radioBtn.id));
         } else if (name === 'tag') {
-         console.log(new TagFilter(event.target.id));
           html.filter(new TagFilter(event.target.id));
         }
       } else if (event.target.type === 'radio') {

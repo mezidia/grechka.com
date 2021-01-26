@@ -55,7 +55,6 @@ export default class HtmlManager {
 
     };
     this.filter(filter);
-    console.log(this._priceFormSubmit.textContent);
     const btnVal = this._priceFormSubmit.textContent === 'Підтвердити' ? 'Скасувати' : 'Підтвердити';
     if (btnVal === 'Підтвердити') {
       this._priceFormFrom.readOnly = false;
@@ -92,7 +91,6 @@ export default class HtmlManager {
     for (const val of fields) {
       const tagFilterCell = new TagFilterCell(tagField, val);
       filterCell.innerHTML += tagFilterCell.getElmentHtml();
-      console.log(document.getElementById(tagFilterCell.elementID));
     }
   }
 
@@ -108,7 +106,6 @@ export default class HtmlManager {
     return fetch('/getProdData', sendOptions)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.closeLoader();
         data.forEach(product => {
           this.addProduct(product);
@@ -126,10 +123,8 @@ export default class HtmlManager {
       if (ruleCb(product)) {
         if (filter.isChecked()) {
           product.addFilterBlock(filter.id);
-          console.log('add');
         } else {
           product.removeFilterBlock(filter.id);
-          console.log('remove');
         }
       }
       product.show();
@@ -145,7 +140,6 @@ export default class HtmlManager {
   sortByField(field, reverse = false) {
    this._storage.sortByField(field, reverse);
    const products = this._storage.getProducts();
-   console.log(products);
    products.forEach((prod, i) => {
     prod.domElement.style.order = i;
   });
@@ -199,7 +193,6 @@ export default class HtmlManager {
     fetch('/getGraphicData', sendOptions)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         const xy = {
           'x': [],
           'y': [],

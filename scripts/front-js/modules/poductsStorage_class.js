@@ -27,7 +27,6 @@ export default class ProductsStorage {
 
   storageProduct(product) {
     this._products.push(product);
-    console.log('peoduct storaged: ' + JSON.stringify(product));
   }
 
   getProducts() {
