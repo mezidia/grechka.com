@@ -31,7 +31,7 @@ function grab(site) {
     });
 
     //if no buckweat category add
-    const productCategory = await database.checkDB('Product', {categoryType: 'buckwheat'}).catch(err => {
+    const productCategory = await database.checkDB('Category', {categoryType: 'buckwheat'}).catch(err => {
       console.log(err);
     });
 
