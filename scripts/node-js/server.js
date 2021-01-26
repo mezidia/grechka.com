@@ -5,6 +5,7 @@ const FileManager = require('./fileManager').FileManager;
 const Database = require('./Database').Database;
 const config = require('./config.json');
 const setNewProduct = require('./setNewProduct').setNewProduct;
+const minPriceByDay = require('./minPriceByDay').minPriceByDay;
 const fileManager = new FileManager();
 const dbVar = config.development.database;
 const db = new Database(dbVar);
@@ -51,11 +52,14 @@ class Server {
           } else {
             product = setNewProduct(product, category);
           }
-         console.log(product);
         }
         data = products;
-        //console.log(data);
         data = JSON.stringify(data);
+      } else if (url === '/getGraphicData') {
+        console.log('/getGraphicData');
+        const history =  await db.getAllByTableName('History');
+        console.log(JSON.parse(history[0].data));
+        minPriceByDay(history);
       }
       const typeAns = mime[extention];
       if (!data) data = await fileManager.readFile('.' + name);

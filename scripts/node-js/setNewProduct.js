@@ -1,7 +1,7 @@
 'use strict';
 
 function setNewProduct(product, category = 'невідома', manufacturer = 'невідомий') {
-  const res = {
+  return {
     'productName': product.productName,
     'weight': product.weight,
     'price': product.price,
@@ -10,7 +10,6 @@ function setNewProduct(product, category = 'невідома', manufacturer = '�
     'manufacturer': manufacturer,
     'category': category,
   };
-  return res;
 }
 
 module.exports.setNewProduct = setNewProduct;

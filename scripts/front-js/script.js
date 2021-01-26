@@ -62,8 +62,21 @@ function getProductsData() {
 }
 getProductsData();
 
-
-
+function getGraphicData() {
+  const sendOptions = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  };
+  fetch('/getGraphicData', sendOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => console.log(err));
+}
+getGraphicData();
 
 const handleClick = evt => ({
   'submitPriceLimit-btn': html.submitPriceForm,
