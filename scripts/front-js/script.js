@@ -59,6 +59,6 @@ window.onload = () => {
   html.updateProducts().then(() => {
     initChecboxes();
   });
-  drowGraphic();
+  html.drawGraphic();
 }
 
