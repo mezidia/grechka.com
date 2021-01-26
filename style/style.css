@@ -301,6 +301,7 @@ input {
 }
 
 #footer {
+  position: absolute;
   margin-top: 10px;
   padding: 0px;
   height: 70px;
