@@ -113,6 +113,23 @@ class Database {
     return null;      
   }
 
+  //get all data by table name from db
+  getAllByTableName(tableName) {
+    let result = null;
+    const schemas = this.schemas;
+    for (let i = 0; i < schemas.length; i++) {
+      if (schemas[i].modelName !== tableName) continue;
+      schemas[i].find({}, (err, res) => {
+        if (err) {
+          console.log(err);
+        } else {
+          result = res;
+        }
+      });
+    }
+    return result;
+  }
+
   //checks if obj exists, if not, creates it
   //returns object
   async checkDB(tableName, obj) {
