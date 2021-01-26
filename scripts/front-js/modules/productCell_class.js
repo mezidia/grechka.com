@@ -54,9 +54,9 @@ export default class ProductCell {
       <div class="productCell-grid">
         <div class="product-name">${this.prodName}</div> 
         <div class="product-description">
-        weight: ${this.weight} гр<br>
-        manufacturer: ${this.manufacturer}<br>
-        category: ${this.category}<br>
+        Маca: ${this.weight} гр<br>
+        Виробник: ${this.manufacturer}<br>
+        Категорія товару: ${this.category}<br>
         </div>
         <a class="buy-btn" target="_blank" href="${this.prodURL}">${this.price} грн</a>
       </div>

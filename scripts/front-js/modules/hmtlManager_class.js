@@ -85,12 +85,14 @@ export default class HtmlManager {
     return [this._priceFormFrom.value, this._priceFormTo.value];
   }
 
-  setUpTagFilters(field) {
-    const filterCell = document.getElementById(field);
-    const fields = this._storage.getAllValsOfProdField(field);
-    for (const field of fields) {
-      filterCell.innerHTML += new TagFilterCell(field).getElmentHtml();
-    }   
+  setUpTagFilters(tagField) {
+    const filterCell = document.getElementById(tagField);
+    const fields = this._storage.getAllValsOfProdField(tagField);
+    for (const val of fields) {
+      const tagFilterCell = new TagFilterCell(tagField, val);
+      filterCell.innerHTML += tagFilterCell.getElmentHtml();
+      console.log(document.getElementById(tagFilterCell.elementID));
+    }
   }
 
   updateProducts = () => {
@@ -102,7 +104,7 @@ export default class HtmlManager {
       },
     };
     this.loader();
-    fetch('/getProdData', sendOptions)
+    return fetch('/getProdData', sendOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data);
