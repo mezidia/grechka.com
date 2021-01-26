@@ -8,7 +8,7 @@ export default class HtmlManager {
   _overlay = document.getElementById('overlay');
   _graphRef = document.getElementById('graph_ref');
   _filterRef = document.getElementById('filter_ref');
-  _secondaryGraphic = document.getElementById('secondary-graphic');
+  _secondaryGraphic = document.getElementById('main-graphic');
   _filters = document.getElementById('main-filters');
   _productsPlaceHolder = document.getElementById('productsPlaceholder-wraper');
   _sortRadioBtn = document.getElementsByName('sort');
@@ -118,7 +118,7 @@ export default class HtmlManager {
 
   goBack = () => {
     this._filters.style = '';
-    this._secondaryGraphic.style.display = 'none';
+    this._secondaryGraphic.style = '';
     this._graphRef.style.display = 'block';
     this._filterRef.style.display = 'block';
     this._filters.style.position = 'relative';
@@ -146,4 +146,12 @@ export default class HtmlManager {
     this._filters.style.position = 'absolute';
   }
   
+  loader = () => {
+    this._productsPlaceHolder.innerHTML = '<div class="lds-hourglass"></div>'
+  }
+
+  clear = () => {
+    this._productsPlaceHolder.innerHTML = '';
+  }
+
 }
