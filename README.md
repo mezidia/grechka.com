@@ -62,9 +62,7 @@ Include logo/demo screenshot etc.
 
 ## Features
 
-What makes your project stand out?
-
-> With my package you can **sync** two folders, **manage** logs files, **delete** empty folders and old files, read and create **zip-archives**.
+On the site you can find the cheapest buckwheat, sort by price segment, by price, by weight, in direct and reverse order and get the lowest price in recent times.
 
 ## Code Example
 
