@@ -2,6 +2,7 @@
 
 import ProductCell from "./productCell_class.js";
 import ProductsStorage from "./poductsStorage_class.js";
+import TagFilterCell from "./tagFilterCell_class.js";
 
 
 export default class HtmlManager {
@@ -84,6 +85,14 @@ export default class HtmlManager {
     return [this._priceFormFrom.value, this._priceFormTo.value];
   }
 
+  setUpTagFilters(field) {
+    const filterCell = document.getElementById(field);
+    const fields = this._storage.getAllValsOfProdField(field);
+    for (const field of fields) {
+      filterCell.innerHTML += new TagFilterCell(field).getElmentHtml();
+    }   
+  }
+
   updateProducts = () => {
     this.clearProducts();
     const sendOptions = {
@@ -102,6 +111,7 @@ export default class HtmlManager {
           this.addProduct(product);
         });
         this.sortByField('price');
+        this.setUpTagFilters('manufacturer');
       })
       .catch(err => console.log(err));
   }
