@@ -49,10 +49,12 @@ function getProductsData() {
       'Content-Type': 'application/json'
     },
   };
+  html.loader();
   fetch('/getProdData', sendOptions)
     .then(response => response.json())
     .then(data => {
       console.log(data);
+      html.clear();
       data.forEach(product => {
         html.addProduct(product);
       });

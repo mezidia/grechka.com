@@ -180,22 +180,6 @@ input {
  ;
 }
 
-#secondary-filters {
-  display: none;
-  position: absolute;
-  top: 15%;
-  left: 20%;
-  width: 60vw;
-  /* height: 80vh; */
-  height: 650px;
-  min-width: 300px;
-  margin: 20px 0px 0px 10px;
-  background-color: var(--main-filter-bg);
-  box-shadow:
-  1px 0 0 var(--main-green-color)
- ;
-}
-
 #productsPlaceholder {
   grid-column-start: 2;
   grid-column-end: 5;
@@ -815,6 +799,17 @@ input {
   .non-wide {
     display: block;
   }
+
+  #main-graphic {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 60vw;
+    height: 60vh;
+    z-index: 25;
+  }
+
   #main-graphic {
     display: none;
   }
@@ -833,10 +828,11 @@ input {
     top: 15%;
     left: 20%;
     width: 60vw;
-    height: 650px;
+    height: 670px;
     min-width: 300px;
     z-index: 25;
   }
+
 
   #productsPlaceholder {
     grid-column-start: 1;
@@ -851,6 +847,8 @@ input {
 }
 
 .lds-hourglass {
+  left: 49%;
+  top: 20px;
   display: inline-block;
   position: relative;
   width: 80px;
@@ -864,8 +862,8 @@ input {
   height: 0;
   margin: 8px;
   box-sizing: border-box;
-  border: 32px solid #fff;
-  border-color: #fff transparent #fff transparent;
+  border: 32px solid var(--main-green-color);
+  border-color: var(--main-green-color) transparent var(--main-green-color) transparent;
   animation: lds-hourglass 1.2s infinite;
 }
 @keyframes lds-hourglass {
