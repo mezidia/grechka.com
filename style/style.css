@@ -233,8 +233,10 @@ input {
   display: flex;
   justify-content: start;
   font-size: 20px;
-  overflow: hidden;
   text-overflow: ellipsis;
+  display: inline-block;
+  overflow: hidden;  
+  white-space: nowrap;
 }
 
 .buy-btn {
@@ -881,5 +883,4 @@ input {
 
 .main-text {
   min-height: 100%;
-  margin-bottom: -70px;
 }
