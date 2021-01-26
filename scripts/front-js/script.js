@@ -34,8 +34,6 @@ function initChecboxes() {
   }
 }
 
-
-
 const handleClick = evt => ({
   'search': html.updateProducts,
   'submitPriceLimit-btn': html.submitPriceForm,
