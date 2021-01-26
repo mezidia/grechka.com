@@ -3,6 +3,7 @@
 [![Language](https://img.shields.io/badge/language-javascript-brightgreen?style=flat-square)](https://nodejs.org/uk/)
 
 Hello everyone! This is the repository of the site grechka.com.
+Visit [grechka.com here](https://grechka-com.herokuapp.com/)!
 
 ## Table of contents
 
@@ -54,6 +55,10 @@ Include logo/demo screenshot etc.
 - [mongoose](https://mongoosejs.com/)
 - [http](https://nodejs.org/api/http.html)
 - [fs](https://nodejs.org/api/fs.html)
+- [cron](https://uk.wikipedia.org/wiki/Cron)
+- [Chart.js](https://github.com/chartjs/Chart.js)
+- [cheerio](https://github.com/cheeriojs/cheerio)
+- [request](https://github.com/request/request)
 
 ## Features
 

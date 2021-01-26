@@ -17,6 +17,14 @@ export default class ProductsStorage {
     this._products = [];
   }
 
+  getAllValsOfProdField(field) {
+    const res = [];
+    for (const product of this._products) {
+      res.push(product[field]);
+    }
+    return [...new Set(res)]; // remove dublicates
+  }
+
   storageProduct(product) {
     this._products.push(product);
     console.log('peoduct storaged: ' + JSON.stringify(product));
