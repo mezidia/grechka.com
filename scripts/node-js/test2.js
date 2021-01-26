@@ -38,11 +38,11 @@ async function exec() {
   //get all history
   const product = await database.find('Product', {productName: 'Doll'});
   const productid = product._id;
-  const history = await database.find('History', {productId: productid});
-  //console.log('all history: ' + history);
+  const history = await database.getAllByTableName('History');
+  console.log('all history: ' + history);
 
   const productsAll = await database.getAllByTableName('Product');
-  console.log('all products ' + productsAll);
+  //console.log('all products ' + productsAll);
 
   //remove product and all its history
   await database.remove('Product', {productName: 'Doll'});

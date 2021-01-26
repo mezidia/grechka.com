@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/mezidia/grechka.com#readme",
   "dependencies": {
+    "chart.js": "^2.9.4",
     "cheerio": "^1.0.0-rc.5",
     "mongoose": "^5.11.13",
     "request": "^2.88.2"

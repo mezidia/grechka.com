@@ -52,10 +52,10 @@ export default class ProductCell {
       <div class="productCell-grid">
         <div class="product-name">${this.prodName}</div> 
         <div class="product-description">
-        weight: ${this.weight}<br>
+        weight: ${this.weight} гр<br>
         description: ${this.description}<br>
         </div>
-        <a class="buy-btn" target="_blank" href="${this.prodURL}">${this.price}grn</a>
+        <a class="buy-btn" target="_blank" href="${this.prodURL}">${this.price} грн</a>
       </div>
     </div>
   `;
