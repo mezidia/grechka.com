@@ -60,7 +60,22 @@ for (const checkbox of checkboxes) {
     }
   };
 }
-
+//when "GET" gets information from server
+function loadData(method, url, data, callback) {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      callback(xhr.response);
+    }
+  };
+  xhr.open(method, url, true);
+  xhr.responseType = 'text';
+  if (method === 'POST') {
+    xhr.send(data);
+  } else {
+    xhr.send();
+  }
+}
 function getProductsData() {
   
   fetch()
