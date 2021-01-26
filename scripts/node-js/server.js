@@ -2,7 +2,12 @@
 
 const http = require('http');
 const FileManager = require('./fileManager').FileManager;
+const Database = require('./Database').Database;
+const config = require('./config.json');
+const setNewProduct = require('./setNewProduct').setNewProduct;
 const fileManager = new FileManager();
+const dbVar = config.development.database;
+const db = new Database(dbVar);
 
 //types of request extensions
 const mime = {
@@ -12,19 +17,21 @@ const mime = {
   'png': 'image/png',
   'ico': 'image/x-icon',
   '/date': 'text/plain',
+  '/getProdData': 'text/plain',
 };
 
 class Server {
   constructor(port) {
     const server = http.createServer();
     server.listen(port, () => {
-      console.log('Server running on port...');
+      console.log('Server running on port: ' + port);
     });
     server.on('request', this.handleRequest);
   }
 
   //function for handling requests
   async handleRequest(req, res) {
+    let data = null;
     const url = req.url;
     let name = url;
     const method = req.method;
@@ -32,14 +39,30 @@ class Server {
     if (method === 'GET') {
       if (url === '/') {
         extention = 'html';
-        name = '/main.html';
+        name = '/public/index.html';
+      } else if (url === '/getProdData') {
+        console.log('/getProdData');
+        const products = await db.getAllByTableName('Product');
+        for (let product of products) {
+          const category = (await db.find('Category', { _id: product.categoryId })).categoryType;
+          const isCompanyName = (await db.find('Manufacturer', { _id: product.manufacturerId }));
+          if (isCompanyName) {
+            product = setNewProduct(product, category, isCompanyName.companyName);
+          } else {
+            product = setNewProduct(product, category);
+          }
+         console.log(product);
+        }
+        data = products;
+        //console.log(data);
+        data = JSON.stringify(data);
       }
       const typeAns = mime[extention];
-      let data = await fileManager.readFile('.' + name);
+      if (!data) data = await fileManager.readFile('.' + name);
       if (!data) {
         console.log('no such file => ' + name);
         //handle if no page
-        const pageNotFound = await fileManager.readFile('./scripts/html/noPageFound.html');
+        const pageNotFound = await fileManager.readFile('./public/pageNotFound.html');
         res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
         res.write(pageNotFound);
       } else if (typeof data === 'number') {

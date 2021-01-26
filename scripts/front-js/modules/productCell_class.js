@@ -2,12 +2,12 @@
 
 export default class ProductCell {
   constructor(data, id) {
-    this.prodName = data.prodName;
-    this.prodImgURL = data.prodImgURL;
-    this.prodURL = data.prodURL;
+    this.prodName = data.productName;
+    this.prodImgURL = data.productImgURL;
+    this.prodURL = data.productURL;
     this.price = data.price;
     this.priceSegment = data.priceSegment;
-    this.weight = data.weight;
+    this.weight = data.weight * 1000;
     this.description = data.description;
     this.elementID = id;
     this.allowByNfilters = {};

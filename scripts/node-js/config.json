@@ -1,6 +1,6 @@
 {
     "development": {
         "node_port": "process.env.PORT",
-        "database": "dbVar"
+        "database": "cXiZf1YUZTNtMrX8"
     }
 }

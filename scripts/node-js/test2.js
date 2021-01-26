@@ -1,8 +1,9 @@
 'use strict';
 
 const Database = require('./Database').Database;
-const port = `mongodb+srv://mezgoodle:cXiZf1YUZTNtMrX8@grechkacom.dwpvy.mongodb.net/database?retryWrites=true&w=majority`;
-const database = new Database(port);
+const config = require('./config.json');
+const dbVar = config.development.database;
+const database = new Database(dbVar);
 
 exec();
 
