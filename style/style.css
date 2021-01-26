@@ -212,6 +212,7 @@ input {
 }
 
 .product-img {
+  cursor: zoom-in;
   width: 125px;
   height: 125px;
 }
@@ -335,7 +336,7 @@ input {
   height: calc(100% - 10px);
 }
 
-.footer-cell>p, .footer-cell>p>a:visited  {
+.footer-cell>p, .footer-cell>p>a:visited, .footer-cell>p>a  {
   color: white;
   text-decoration: none;
 }
@@ -354,6 +355,10 @@ input {
 
 #geek_jornal-ico {
   width: 40px;
+}
+#geek_jornal-ico {
+  width: 40px;
+  opacity: 0.8;
 }
 
 .footer-btn {
