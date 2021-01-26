@@ -41,6 +41,9 @@ class Server {
       if (url === '/') {
         extention = 'html';
         name = '/public/index.html';
+      } else if (url === '/about') {
+        extention = 'html';
+        name = '/public/about.html';
       } else if (url === '/getProdData') {
         console.log('/getProdData');
         data = [];

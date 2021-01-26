@@ -1,6 +1,5 @@
 {
     "development": {
-        "node_port": "process.env.PORT",
         "database": "cXiZf1YUZTNtMrX8"
     }
 }

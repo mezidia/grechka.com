@@ -3,6 +3,7 @@
 [![Language](https://img.shields.io/badge/language-javascript-brightgreen?style=flat-square)](https://nodejs.org/uk/)
 
 Hello everyone! This is the repository of the site grechka.com.
+Visit [grechka.com here](https://grechka-com.herokuapp.com/)!
 
 ## Table of contents
 
