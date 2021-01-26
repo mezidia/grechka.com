@@ -3,7 +3,6 @@
 import HtmlManager from "./modules/hmtlManager_class.js";
 import WeigthFilter from "./modules/weigthFilter_class.js";
 import SortFilter from "./modules/sortFilter_class.js";
-import loadChart from "./modules/chart.js";
 import TagFilter from "./modules/tagFilter_class.js";
 
 const html = new HtmlManager();
@@ -57,6 +56,6 @@ window.onload = () => {
   html.updateProducts().then(() => {
     initChecboxes();
   });
-  drowGraphic();
+  html.drawGraphic();
 }
 
