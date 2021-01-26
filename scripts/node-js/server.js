@@ -19,6 +19,7 @@ const mime = {
   'ico': 'image/x-icon',
   '/date': 'text/plain',
   '/getProdData': 'text/plain',
+  'svg': 'image/svg+xml',
 };
 
 class Server {
