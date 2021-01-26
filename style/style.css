@@ -236,12 +236,14 @@ input {
 
 .product-name {
   grid-column-start: 1;
-  grid-column-end: 6;
+  grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 1;
   display: flex;
   justify-content: start;
-  font-size: 25px;
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .buy-btn {
