@@ -13,9 +13,10 @@
   },
   "keywords": [
     "nodejs",
+    "mongoDB",
+    "server",
     "js",
-    "sqlite",
-    "server"
+    "web"
   ],
   "author": "mezidia",
   "license": "MIT",
@@ -24,6 +25,8 @@
   },
   "homepage": "https://github.com/mezidia/grechka.com#readme",
   "dependencies": {
-    "mongoose": "^5.11.13"
+    "mongoose": "^5.11.13",
+    "cheerio": "^1.0.0-rc.5",
+    "request": "^2.88.2"
   }
 }

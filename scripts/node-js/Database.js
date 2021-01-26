@@ -7,9 +7,11 @@ const History = require('./models/history');
 const Product = require('./models/product');
 
 class Database {
-  constructor(port) {
+  constructor(dbVar) {
+    if (Database._instance) return Database._instance;
+    Database._instance = this;
     mongoose.connect(
-      port,
+      `mongodb+srv://mezgoodle:${dbVar}@grechkacom.dwpvy.mongodb.net/database?retryWrites=true&w=majority`,
       { useNewUrlParser: true, useUnifiedTopology: true }
     );
 
@@ -23,6 +25,7 @@ class Database {
     this.connection.once('close', () => {
       console.log('MongoDB database connection closed successfully');
     });
+    return Database._instance;
   }
 
   //finds table in database based on name of table
@@ -35,7 +38,6 @@ class Database {
       let result = null
       try {
         result = await schemas[i].findOne(args).exec();
-        console.log('found ' + result);
       } catch (err) {
         console.error(err);
       }
@@ -55,11 +57,12 @@ class Database {
       try {
         const model = new schemas[i](args);
         result = await model.save();
-        console.log('added ' + result);
-        if (schemas[i].modelName === 'Product') await this.updateHistory(result._id, result.price);
       } catch (err) {
         console.error(err);
       }
+      if (schemas[i].modelName === 'Product') await this.updateHistory(result._id, result.price).catch(err => {
+        console.log('error when updating product history' + err);
+      });
       return result;
     }
     return null;
@@ -78,10 +81,12 @@ class Database {
           const product = await this.find('Product', obj);
           await this.updateHistory(product._id, product.price);
         }
-        if (schemas[i].modelName === 'History') await this.find('History', obj);
       } catch(err) {
         console.error(err);
       }
+      if (schemas[i].modelName === 'History') await this.find('History', obj).catch(err => {
+        console.log('error when finding product history' + err);
+      });;
       return result;
     }
     return null;
@@ -100,7 +105,6 @@ class Database {
           await History.deleteOne({productId: product._id}).exec();
         }
         result = await schemas[i].deleteOne(args).exec();
-        console.log('removed ' + result);
       } catch (err) {
         console.error(err);
       }
@@ -109,14 +113,64 @@ class Database {
     return null;      
   }
 
+  //get all data by table name from db
+  getAllByTableName(tableName) {
+    let result = null;
+    const schemas = this.schemas;
+    for (let i = 0; i < schemas.length; i++) {
+      if (schemas[i].modelName !== tableName) continue;
+      schemas[i].find({}, (err, res) => {
+        if (err) {
+          console.log(err);
+        } else {
+          result = res;
+        }
+      });
+    }
+    return result;
+  }
+
+  //checks if obj exists, if not, creates it
+  //returns object
+  async checkDB(tableName, obj) {
+    let inDB = null;
+    inDB = await this.find(tableName, obj).catch(err => {
+      console.log('error when finding ' + tableName + err);
+    });
+    if (!inDB) inDB = await this.addNew(tableName, obj).catch(err => {
+      console.log('error when creating ' + tableName + err);
+    });
+    return inDB;
+  }
+
+  //if Product exists updates it, else creates it
+  async updateDB(tableName, obj) {
+    if (tableName !== 'Product') return;
+    let productInDB = null;
+    productInDB = await this.find(tableName, {productName: obj.productName}).catch(err => {
+      console.log('error when finding product in DB' + err);
+    });
+    if (!productInDB) await this.addNew(tableName, obj).catch(err => {
+      console.log('error when creating new product ' + err);
+    });
+    else await this.update(tableName, {productName: obj.productName}, obj).catch(err => {
+      console.log('error when updating product ' + err);
+    });
+    console.log('success ' + obj.productName);
+  }
+
   //should be private
   async updateHistory(id, price) {
     let history = null
-    history = await this.find('History', {productId: id});
+    history = await this.find('History', {productId: id}).catch(err => {
+      console.log('error when finding product history' + err);
+    });
     if (history === null) {
       history = new History({productId: id,
                             data: '{}'});
-      await history.save();
+      await history.save().catch(err => {
+        console.log('error when saving product history' + err);
+      });;
     }
     const date = Date.now();
     const data = JSON.parse(history.data);
