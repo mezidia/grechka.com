@@ -9,7 +9,7 @@ const config = require('./scripts/node-js/config.json');
 const port = config.development.node_port;
 
 //creating server
-const server = new Server(8888 || port); 
+const server = new Server(port || 8888); 
 
 //handling rejections in promises
 process.on('unhandledRejection', error => {
