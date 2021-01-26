@@ -46,17 +46,18 @@ class Server {
         name = '/public/about.html';
       } else if (url === '/getProdData') {
         console.log('/getProdData');
+        data = [];
         const products = await db.getAllByTableName('Product');
-        for (let product of products) {
+        for (const product of products) {
           const category = (await db.find('Category', { _id: product.categoryId })).categoryType;
           const isCompanyName = (await db.find('Manufacturer', { _id: product.manufacturerId }));
           if (isCompanyName) {
-            product = setNewProduct(product, category, isCompanyName.companyName);
+            data.push(setNewProduct(product, category, isCompanyName.companyName));
           } else {
-            product = setNewProduct(product, category);
+            data.push(setNewProduct(product, category));
           }
         }
-        data = products;
+        console.log(data);
         data = JSON.stringify(data);
       } else if (url === '/getGraphicData') {
         console.log('/getGraphicData');

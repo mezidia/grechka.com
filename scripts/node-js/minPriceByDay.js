@@ -4,7 +4,6 @@ function minPriceByDay(history) {
   const res = [];
   const dates = Object.keys(JSON.parse(history[0].data));
   for (let i = 0; i < dates.length; i++) {
-    console.log(dates[i]);
     const dateStr = JSON.parse(dates[i]);
     const dateJS = new Date(+dateStr);
     const dateArr = [
