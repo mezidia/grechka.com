@@ -212,7 +212,7 @@ input {
 .product-img:hover {
   width: 300px;
   height: 300px;
-  z-index: 2;
+  z-index: 1;
   margin: -75px 0 0 -75px;
 }
 
@@ -728,8 +728,7 @@ input {
 }
 
 #openbtn {
-  right: 50px;
-  top:20px;
+  z-index: 4;
 }
 
 .overlay {

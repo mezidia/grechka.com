@@ -9,6 +9,8 @@ export default class ProductCell {
     this.priceSegment = data.priceSegment;
     this.weight = data.weight * 1000;
     this.description = data.description;
+    this.manufacturer = data.manufacturer;
+    this.category = data.category;
     this.elementID = id;
     this.allowByNfilters = {};
     this.domElement = undefined;
@@ -53,7 +55,8 @@ export default class ProductCell {
         <div class="product-name">${this.prodName}</div> 
         <div class="product-description">
         weight: ${this.weight} гр<br>
-        description: ${this.description}<br>
+        manufacturer: ${this.manufacturer}<br>
+        category: ${this.category}<br>
         </div>
         <a class="buy-btn" target="_blank" href="${this.prodURL}">${this.price} грн</a>
       </div>
