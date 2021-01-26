@@ -3,6 +3,7 @@
 import HtmlManager from "./modules/hmtlManager_class.js";
 import WeigthFilter from "./modules/weigthFilter_class.js";
 import SortFilter from "./modules/sortFilter_class.js";
+import loadChart from "./chart.js";
 
 const html = new HtmlManager();
 html.clearProducts();
@@ -96,4 +97,6 @@ document.addEventListener('click', evt => {
     handleClick(evt)();
   }
 });
+
+document.onload = () => loadChart(getGraphicData());
 
