@@ -18,7 +18,6 @@ Visit [grechka.com here](https://grechka-com.herokuapp.com/)!
 - [Code Example](#code-example)
 - [Fast usage](#fast-usage)
 - [Contribute](#contribute)
-- [Credits](#credits)
 - [License](#license)
 
 ## Motivation
@@ -204,10 +203,6 @@ Just open the link in the description and enjoy your pastime.
 ## Contribute
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Also look at the [CONTRIBUTING.md](https://github.com/mezidia/grechka.com/blob/main/CONTRIBUTING.md).
-
-## Credits
-
-Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project. 
 
 ## License
 
